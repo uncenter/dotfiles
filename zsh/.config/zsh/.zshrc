@@ -38,11 +38,16 @@ vivid_theme="catppuccin-frappe"
 zle_highlight=('paste:none')
 
 # Antidote
+zstyle ':antidote:bundle' use-friendly-names 'yes'
 export ANTIDOTE_HOME="${HOME}/.cache/antidote"
 source "$(brew --prefix antidote)/share/antidote/antidote.zsh"
 antidote load "${ZDOTDIR:-$HOME}/.zsh_plugins.txt"
 
+# Aliases
 [ -f "${XDG_CONFIG_HOME}/sh/aliases" ] && source "${XDG_CONFIG_HOME}/sh/aliases"
+# Load user defined functions (https://unix.stackexchange.com/a/526429):
+fpath=(${XDG_CONFIG_HOME:-$HOME/.config}/zsh/functions $fpath)
+autoload -U $fpath[1]/*(.:t)
 
 eval "$(starship init zsh)"
 eval "$(fnm env)"

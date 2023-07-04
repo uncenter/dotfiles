@@ -1,0 +1,44 @@
+#!/usr/bin/env zsh
+# clone - Clone a repository using gh or git (detects if it's a URL or owner/repo) and prompt to change directory.
+# Usage: clone <repo|owner/repo|URL> [directory]
+
+help() {
+    cat <<EOF
+
+clone - clone with gh or git in the right directory
+
+Usage: clone <repo|owner/repo|URL> [directory]
+
+Examples:
+    clone zsh-users/zsh-autosuggestions
+    clone https://github.com/zsh-users/zsh-autosuggestions
+EOF
+}
+
+if [ -z "$1" ] || [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
+    help
+    return 0
+fi
+
+CLONE_DIR=${XDG_DEV_DIR:-"$HOME/Dev"}
+if [[ $PWD != "$CLONE_DIR" ]]; then
+    printf "Are you sure you want to clone in $PWD? (y/n/cd) \c"; 
+    read -r answer; 
+    if [[ $answer == "n" ]]; then
+        echo "Aborted!"
+        return 1
+    fi
+    if [[ $answer == "cd" ]]; then
+        echo "Switching to $CLONE_DIR..."
+        cd "$CLONE_DIR" || return 1
+    fi
+fi
+if [[ $1 == http://* || $1 == https://* ]]; then
+    git clone "$@"
+else
+    if ! command -v gh > /dev/null 2>&1; then
+        echo "gh is not installed."
+        return 1
+    fi
+    gh repo clone "$@" 
+fi

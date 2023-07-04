@@ -2,23 +2,29 @@
     signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJqPy3W/cnefiuTlqtY6gQsIimz25sYZ6GglXOASK8A4
     name = uncenter
     email = 47499684+uncenter@users.noreply.github.com
+[core]
+	excludesfile = /Users/uncenter/.config/git/ignore
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [commit]
 	gpgsign = true
+[init]
+	defaultBranch = main
+[pull]
+	rebase = true
 [gpg]
     format = ssh
 [gpg "ssh"]
     program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
-[init]
-	defaultBranch = main
-[color]
-	ui = true
-[pull]
-	rebase = true
-[core]
-	excludesfile = /Users/uncenter/.config/git/ignore
-	pager = diff-so-fancy | less --tabs=4 -RFX
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
 [interactive]
 	diffFilter = diff-so-fancy --patch
+[color]
+	ui = true
 [color "diff-highlight"]
 	oldNormal = red bold
 	oldHighlight = red bold 52

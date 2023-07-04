@@ -1,0 +1,33 @@
+#!/usr/bin/env zsh
+# docs - Open documentation for a command in browser, Preview, or man.
+# Usage: docs [-p|-o] <command>
+
+help() {
+    cat <<EOF
+
+docs - versatile documentation viewer
+
+Usage: docs [-p|-o] <command>
+
+Options:
+    -p  Open documentation in Preview.
+    -o  Open documentation in browser.
+EOF
+}
+
+if [ -z "$1" ] || [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
+    help
+    return 0
+fi
+
+if [[ "$1" == "-p" ]]; then
+    echo "Opening page for '${@:2}' in Preview..."
+    for page in "${(@f)"$(man -w "${@:2}")"}"; do
+        command mandoc -Tpdf "$page" | open -f -a Preview
+    done
+elif [[ "$1" == "-o" ]]; then
+    echo "Opening page for '$2' in browser..."
+    open "https://ss64.com/osx/$2.html"
+else
+    man "$@"
+fi
