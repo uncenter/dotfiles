@@ -1,0 +1,42 @@
+#!/usr/bin/env sh
+
+# Verify that a package is installed.
+have() { type "$1" > /dev/null 2>&1; }
+
+alias cat=bat
+alias ls='exa -F --git --no-icons --no-permissions --no-user'
+alias ll='ls -la'
+alias lt='ll --tree'
+alias lsd='ls --only-dirs'
+alias fd='fd --hidden'
+alias mkdir='mkdir -p'
+alias cp='cp -i'
+alias mv='mv -i'
+
+alias silicon='silicon --theme="$(dirname $(bat --config-file))/themes/Catppuccin-mocha.tmTheme"'
+alias uppercase='tr "[:lower:]" "[:upper:]"'
+alias lowercase='tr "[:upper:]" "[:lower:]"'
+alias reload='source ~/.zshrc'
+alias dev='cd $XDG_DEV_DIR'
+alias urldecode='python3 -c "import sys, urllib.parse as ul; \
+    print(ul.unquote_plus(sys.argv[1]))"'
+alias urlencode='python3 -c "import sys, urllib.parse as ul; \
+    print (ul.quote_plus(sys.argv[1]))"'
+alias serve='npx @11ty/eleventy-dev-server'
+alias web='npx broz'
+
+# -----------------MACOS------------------
+
+alias showfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hidefiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+alias disable_dsstore="defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true"
+alias enable_dsstore="defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool false"
+alias enable_custom_accent="defaults write -g NSColorSimulateHardwareAccent -bool YES"
+alias disable_custom_accent="defaults write -g NSColorSimulateHardwareAccent -bool NO"
+alias set_custom_accent="defaults write -g NSColorSimulatedHardwareEnclosureNumber -int" # 4-8
+alias current_custom_accent="defaults read -g NSColorSimulatedHardwareEnclosureNumber"
+alias stfu="osascript -e 'set volume output muted true'"
+alias pumpitup="osascript -e 'set volume output volume 100'"
+alias update="brew update; brew upgrade; brew cleanup --prune=all; softwareupdate -i -a --verbose;"
+alias rmdsstore="fd -H '^\.DS_Store$' -tf -X rm -i"
+alias emptytrash="sudo rm -rfv ~/.Trash"

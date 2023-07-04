@@ -1,0 +1,33 @@
+#!/usr/bin/env sh
+# ~/.config/sh/xdg - XDG specifications.
+
+
+# https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_BIN_HOME="$HOME/.local/bin"
+export XDG_RUNTIME_DIR="/tmp"
+export XDG_DEV_DIR="$HOME/Dev"
+
+# Environment variables for specific programs.
+
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+
+export TEALDEER_CONFIG_DIR="$XDG_CONFIG_HOME/tealdeer"
+export TEALDEER_CACHE_DIR="$XDG_CACHE_HOME/tealdeer"
+
+export NPM_CONFIG_USERCONFIG="${NPM_CONFIG_USERCONFIG:-$XDG_CONFIG_HOME/npm/npmrc}"
+export NODE_REPL_HISTORY="${NODE_REPL_HISTORY:-$XDG_DATA_HOME/nodejs/repl_history}"
+
+export CARGO_HOME="${CARGO_HOME:-$XDG_DATA_HOME/cargo}"
+export RUSTUP_HOME="${RUSTUP_HOME:-$XDG_DATA_HOME/rustup}"
+source "${CARGO_HOME}/env"
+
+export GEM_HOME="${GEM_HOME:-$XDG_DATA_HOME/gem}"
+
+export GHCUP_USE_XDG_DIRS=1
+
+export YARN_CACHE_FOLDER="$XDG_CACHE_HOME/yarn"
+export YARN_ENABLE_TELEMETRY=0

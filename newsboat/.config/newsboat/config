@@ -1,0 +1,3 @@
+include ./dark
+browser "open %u"
+refresh-on-startup yes

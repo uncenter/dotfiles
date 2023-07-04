@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+# ~/.config/sh/environ - sh/bash/zsh environment variables.
+
+# Load XDG specifications.
+[ -f ~/.config/sh/xdg ] && . ~/.config/sh/xdg
+
+export GPG_TTY=$(tty)
+# gpgconf --launch gpg-agent
+
+export LANG=en_US.UTF-8
+export EDITOR="hx"
+export VISUAL="code"
+export LESS="-R"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+export PATH="${HOME}/.local/bin:${PATH}"
+export PATH="/opt/homebrew/opt/openjdk/bin:${PATH}"
