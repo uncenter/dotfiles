@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
 # Load environment variables (and XDG specifications).
-[ -f ~/.config/sh/environ ] && . ~/.config/sh/environ
+[ -f ~/.config/sh/env ] && . ~/.config/sh/env
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
