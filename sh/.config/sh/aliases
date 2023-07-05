@@ -15,20 +15,30 @@ alias fd='fd --hidden'
 alias mkdir='mkdir -p'
 alias cp='cp -i'
 alias mv='mv -i'
+alias cl='clear'
 alias dev='cd $XDG_DEV_DIR'
 
-alias silicon='silicon --theme="$(dirname $(bat --config-file))/themes/Catppuccin-mocha.tmTheme"'
+# Git aliases.
+alias pull='git pull origin'
+alias push='git push origin'
+alias commit='git commit -m'
+alias add='git add'
+alias status='git status'
+
+# Shortcuts.
 alias uppercase='tr "[:lower:]" "[:upper:]"'
 alias lowercase='tr "[:upper:]" "[:lower:]"'
 alias reload='source ${ZDOTDIR:-$HOME}/.zshrc'
+
+# Other
+alias silicon='silicon --theme="$(dirname $(bat --config-file))/themes/Catppuccin-mocha.tmTheme"'
 alias urldecode='python3 -c "import sys, urllib.parse as ul; \
     print(ul.unquote_plus(sys.argv[1]))"'
 alias urlencode='python3 -c "import sys, urllib.parse as ul; \
     print (ul.quote_plus(sys.argv[1]))"'
 alias serve='npx @11ty/eleventy-dev-server'
 
-# -----------------MACOS------------------
-
+# OS X specific aliases.
 alias showfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 alias hidefiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
 alias disable_dsstore="defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true"
