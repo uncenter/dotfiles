@@ -31,7 +31,6 @@ alias lowercase='tr "[:upper:]" "[:lower:]"'
 alias reload='source ${ZDOTDIR:-$HOME}/.zshrc'
 
 # Other
-alias silicon='silicon --theme="$(dirname $(bat --config-file))/themes/Catppuccin-mocha.tmTheme"'
 alias urldecode='python3 -c "import sys, urllib.parse as ul; \
     print(ul.unquote_plus(sys.argv[1]))"'
 alias urlencode='python3 -c "import sys, urllib.parse as ul; \

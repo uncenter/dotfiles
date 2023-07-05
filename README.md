@@ -45,6 +45,8 @@ You can now install any configurations you wish to copy using GNU Stow.
 
 ## Caveats
 
+### `zsh` and `bash`
+
 For the configuration of `zsh` and `bash`, you will need to create two
 symbolic aliases:
 
@@ -55,6 +57,8 @@ ln -s ~/.config/zsh/zshenv .zshenv
 
 Only `.zshenv` is required for `zsh` to work properly as it is the first file in a chain of files (`.zshenv` -> `sh/profile` -> `sh/env` -> `zsh/xdg` -> sets `$ZDOTDIR` -> `.zshrc`).
 
+### Partial linking
+
 Additionally, some directories should be only "partially linked". For example, the `antidote` plugin manager for `zsh` will autogenerate a `.zsh_plugins.zsh` file in `$ZDOTDIR`. This file should not be linked and to avoid this, we can link the contents of the directory instead of the directory itself by creating the directory and then linking the contents:
 
 ```bash
@@ -63,6 +67,19 @@ stow zsh
 ```
 
 `newsboat` should also be partially linked as it will generate a `cache.db` file in its directory.
+
+### Dumb CLIs
+
+`silicon` needs themes and to do so we need to create a symlink to the themes directory (after stowing all the configs, or at least just `bat`):
+
+```bash
+ln -s ~/.config/bat/themes/ ~/.config/themes
+silicon --build-cache
+```
+
+**Note:** Silicon may also error if there isn't a `~/.config/syntaxes` directory. This can be fixed by creating the directory and then running `silicon --build-cache` again.
+
+`bat`
 
 ## License
 
