@@ -26,7 +26,7 @@ I like to keep my home directory as clean as possible in accordance with the [XD
 ## Dotfiles manager
 
 I'm using [GNU Stow](https://www.gnu.org/software/stow/) - a free, lightweight
-dotfiles manager written in Perl. I really don't know why I went with it other than it is simple and basic. I have tried a few others, such as [chezmoi](https://www.chezmoi.io/), but they were overcomplicated or just annoying to use.
+dotfiles manager written in Perl. I really don't know why I went with it other than it is simple and basic. I have tried a few others, such as [chezmoi](https://www.chezmoi.io/), but they were overcomplicated or just annoying to use. I used this [incredibly helpful guide](https://www.jakewiesler.com/blog/managing-dotfiles) to get started with `stow` and it has been working great so far.
 
 ## Getting started
 
