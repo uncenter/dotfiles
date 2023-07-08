@@ -37,6 +37,7 @@ alias urldecode='python3 -c "import sys, urllib.parse as ul; \
 alias urlencode='python3 -c "import sys, urllib.parse as ul; \
     print (ul.quote_plus(sys.argv[1]))"'
 alias serve='npx @11ty/eleventy-dev-server'
+alias fdcatppuccin="rg -i -l '(latte|frapp[eé]|mocha|macchiato)' ~/.config/*"
 
 # OS X specific aliases.
 alias showfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
