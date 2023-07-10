@@ -32,7 +32,7 @@ export HISTSIZE=10000 # Maximum number of events to save in the internal history
 export SAVEHIST=10000 # Maximum number of events to save in the history file.
 
 # https://github.com/ryanccn/vivid-zsh
-vivid_theme="catppuccin-frappe"
+vivid_theme="catppuccin-macchiato"
 
 # Prevent text from being highlighted when pasted into the terminal:
 zle_highlight=('paste:none')
