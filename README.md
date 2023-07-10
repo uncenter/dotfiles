@@ -1,13 +1,9 @@
-<div align="center">
-
 <h1>Dotfiles</h1>
 
 ![macOS](https://img.shields.io/badge/macOS-13.5-47999e.svg?style=flat-square)
 [![GNU Stow](https://img.shields.io/badge/GNU%20Stow-2.3.1-b48ead.svg?style=flat-square)](https://www.gnu.org/software/stow/)
 
 My dotfiles configuration for macOS!
-
-</div>
 
 > This repository was heavily inspired by [rememberYou/dotfiles](https://github.com/rememberYou/dotfiles) and [ryanccn/dotfiles](https://github.com/ryanccn/dotfiles), many thanks to them!
 
