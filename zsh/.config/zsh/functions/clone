@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
+#
 # clone - Clone a repository using gh or git (detects if it's a URL or owner/repo) and prompt to change directory.
-# Usage: clone <repo|owner/repo|URL> [directory]
 
 help() {
     cat <<EOF

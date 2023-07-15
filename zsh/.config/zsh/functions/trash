@@ -1,13 +1,13 @@
 #!/usr/bin/env zsh
-# trash - Move files to the trash directory instead of deleting them.
-# Usage: trash <file>...
+#
+# trash - Move files to a trash directory instead of deleting them.
 
 help() {
     cat <<EOF
 
 trash - move files to the trash directory instead of deleting them
 
-Usage: trash <file>...
+Usage: trash <files>...
 EOF
 }
 

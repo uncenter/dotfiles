@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
+#
 # gitignore - Download a .gitignore template from https://www.toptal.com/developers/gitignore/api/list and remove annoying comments.
-# Usage: gitignore <template> [output]
 
 help() {
     cat <<EOF

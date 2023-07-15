@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
+#
 # docs - Open documentation for a command in browser, Preview, or man.
-# Usage: docs [-p|-o] <command>
 
 help() {
     cat <<EOF

@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+
+if [[ $# -ne 1 ]]; then
+    echo "Usage: $0 <timestamp>"
+    exit 1
+fi
+
+echo $(gdate -d @"$1" "+%B %d, %Y %T")
