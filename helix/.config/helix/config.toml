@@ -7,6 +7,15 @@ line-number = "relative"
 cursorline = true
 color-modes = true
 
+[editor.statusline]
+left = ["mode", "spinner", "file-name", "file-modification-indicator"]
+center = []
+right = ["diagnostics", "position", "total-line-numbers", "file-encoding"]
+separator = "|"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"

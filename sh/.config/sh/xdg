@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
+# 
 # ~/.config/sh/xdg - XDG specifications.
 
 
@@ -17,11 +18,10 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 export GIT_CONFIG_GLOBAL="$XDG_CONFIG_HOME/git/config"
 
-export TEALDEER_CONFIG_DIR="$XDG_CONFIG_HOME/tealdeer"
-export TEALDEER_CACHE_DIR="$XDG_CACHE_HOME/tealdeer"
+export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc.py"
 
 export NPM_CONFIG_USERCONFIG="${NPM_CONFIG_USERCONFIG:-$XDG_CONFIG_HOME/npm/npmrc}"
-export NODE_REPL_HISTORY="${NODE_REPL_HISTORY:-$XDG_DATA_HOME/nodejs/repl_history}"
+export NODE_REPL_HISTORY="${NODE_REPL_HISTORY:-$XDG_DATA_HOME/nodejs/history}"
 
 export CARGO_HOME="${CARGO_HOME:-$XDG_DATA_HOME/cargo}"
 export RUSTUP_HOME="${RUSTUP_HOME:-$XDG_DATA_HOME/rustup}"
@@ -35,3 +35,6 @@ export YARN_CACHE_FOLDER="$XDG_CACHE_HOME/yarn"
 export YARN_ENABLE_TELEMETRY=0
 
 export GNUPGHOME="${GNUPGHOME:-$XDG_CONFIG_HOME/gnupg}"
+
+export TEALDEER_CONFIG_DIR="$XDG_CONFIG_HOME/tealdeer"
+export TEALDEER_CACHE_DIR="$XDG_CACHE_HOME/tealdeer"

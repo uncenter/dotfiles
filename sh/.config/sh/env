@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
+# 
 # ~/.config/sh/environ - sh/bash/zsh environment variables.
 
 # Load XDG specifications.
