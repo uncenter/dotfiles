@@ -14,5 +14,6 @@ export VISUAL="code"
 export LESS="-R"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
-export PATH="${HOME}/.local/bin:${PATH}"
+export PATH="${XDG_BIN_HOME:-$HOME/.local/bin}:${PATH}"
 export PATH="/opt/homebrew/opt/openjdk/bin:${PATH}"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"

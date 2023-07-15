@@ -6,3 +6,4 @@
 [ -f ~/.config/sh/env ] && . ~/.config/sh/env
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(pyenv init -)"
