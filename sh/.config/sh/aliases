@@ -54,4 +54,4 @@ alias pumpitup="osascript -e 'set volume output volume 100'"
 alias update="brew update; brew upgrade; brew cleanup --prune=all; softwareupdate -i -a --verbose;"
 alias emptytrash="sudo rm -rfv ~/.Trash"
 
-alias binup='for f in ~/bin/*; do chmod +x $f; done'
+alias binup='for f in ~/.bin/*; do chmod +x $f; done'

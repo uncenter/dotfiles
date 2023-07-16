@@ -55,6 +55,13 @@ ln -s ~/.config/zsh/zshenv .zshenv
 
 Only `.zshenv` is required for `zsh` to work properly as it is the first file in a chain of files (`.zshenv` -> `sh/profile` -> `sh/env` -> `zsh/xdg` -> sets `$ZDOTDIR` -> `.zshrc`). I don't use `bash` but I keep it around just in case.
 
+## Other packages
+
+Some applications I use are not available on Homebrew, so I install them manually:
+
+-   [uncenter/wifi-password](https://github.com/uncenter/wifi-password) - a simple script to get the password of the WiFi you're currently connected to
+-   [uncenter/feed-newsboat](https://github.com/uncenter/feed-newsboat) - a CLI wrapper to simplify managing newsboat
+
 ## License
 
 Unlicensed, take what you like.
