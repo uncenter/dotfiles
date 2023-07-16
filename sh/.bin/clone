@@ -17,7 +17,7 @@ EOF
 
 if [ -z "$1" ] || [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
     help
-    return 0
+    exit 0
 fi
 
 CLONE_DIR=${XDG_DEV_DIR:-"$HOME/Dev"}
@@ -26,11 +26,11 @@ if [[ $PWD != "$CLONE_DIR" ]]; then
     read -r answer; 
     if [[ $answer == "n" ]]; then
         echo "Aborted!"
-        return 1
+        exit 1
     fi
     if [[ $answer == "cd" ]]; then
         echo "Switching to $CLONE_DIR..."
-        cd "$CLONE_DIR" || return 1
+        cd "$CLONE_DIR" || exit 1
     fi
 fi
 if [[ $1 == http://* || $1 == https://* ]]; then
@@ -38,7 +38,7 @@ if [[ $1 == http://* || $1 == https://* ]]; then
 else
     if ! command -v gh > /dev/null 2>&1; then
         echo "gh is not installed."
-        return 1
+        exit 1
     fi
     gh repo clone "$@" 
 fi

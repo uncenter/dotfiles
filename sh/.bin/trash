@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 #
 # trash - Move files to a trash directory instead of deleting them.
 
@@ -13,22 +13,23 @@ EOF
 
 if [ -z "$1" ] || [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
     help
-    return 0
+    exit 0
 fi
 
 prompt() {
-    echo "$1 [y/N] \c"
+    echo -n "$1 [y/N] "
     read -r confirmation
+    echo
     if [[ $(echo "$confirmation" | tr "[:upper:]" "[:lower:]") != "y" ]]; then
         echo "Exiting."
-        return 1
+        exit 1
     fi
 }
 
 TRASH_DIR="${XDG_TRASH_HOME:-${HOME}/.Trash}"
 if [ ! -d "$TRASH_DIR" ]; then
     echo "Could not find $TRASH_DIR directory..."
-    prompt "Create it?" || return 1
+    prompt "Create it?" || exit 1
     mkdir "$TRASH_DIR"
 fi
 
@@ -45,17 +46,21 @@ for var in "$@"; do
     filename=$(basename "$var")
     destination="$TRASH_DIR/$filename"
     if [ -e "$destination" ]; then
-        dt=$(strftime '%-I.%M.%S %p' $(date +%s))
+        dt=$(date +'%l.%M.%S %p')
         if [ -d "$var" ]; then
             destination="$TRASH_DIR/${filename} ${dt}"
         else
-            destination="$TRASH_DIR/${filename%.*} ${dt}.${filename##*.}"
+            if [ -z "${filename%.*}" ]; then
+                destination="$TRASH_DIR/${filename} ${dt}"
+            else
+                destination="$TRASH_DIR/${filename%.*} ${dt}.${filename##*.}"
+            fi
         fi
     fi
     size="$(du -sm "$var" | cut -f1)"
     if [ "$size" -gt "$trash_deletion_limit_mb" ]; then
         echo "File '$var' ($(numfmt --from=si --to=si ${size}M)B) is larger than $(numfmt --from=si --to=si ${trash_deletion_limit_mb}M)B."
-        prompt "Are you sure you want to move it to trash?" || return 1
+        prompt "Are you sure you want to move it to trash?" || exit 1
     fi
     if mv "$var" "$destination"; then
         ((successful=successful+1))
@@ -71,6 +76,6 @@ fi
 if [ ${#failed[@]} -gt 0 ]; then
     echo "Failed (${#failed[@]}):"
     for file in "${failed[@]}"; do
-        echo "  $file"
+        echo "$file"
     done
 fi

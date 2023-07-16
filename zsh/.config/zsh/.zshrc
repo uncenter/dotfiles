@@ -45,9 +45,6 @@ antidote load "${ZDOTDIR:-$HOME}/.zsh_plugins.txt"
 
 # Aliases
 [ -f "${XDG_CONFIG_HOME}/sh/aliases" ] && source "${XDG_CONFIG_HOME}/sh/aliases"
-# Load user defined functions (https://unix.stackexchange.com/a/526429):
-fpath=(${XDG_CONFIG_HOME:-$HOME/.config}/zsh/functions $fpath)
-autoload -U $fpath[1]/*(.:t)
 
 eval "$(starship init zsh)"
 eval "$(fnm env)"

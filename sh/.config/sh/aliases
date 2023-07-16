@@ -1,4 +1,6 @@
 #!/usr/bin/env sh
+# 
+# ~/.config/sh/aliases - sh/bash/zsh aliases.
 
 have() { command -v "$1" > /dev/null 2>&1; } # Verify that a package is installed.
 take() { mkdir -p "$1" && cd "$1" || return 1; } # Create a directory and change into it.
@@ -51,3 +53,5 @@ alias pumpitup="osascript -e 'set volume output volume 100'"
 
 alias update="brew update; brew upgrade; brew cleanup --prune=all; softwareupdate -i -a --verbose;"
 alias emptytrash="sudo rm -rfv ~/.Trash"
+
+alias binup='for f in ~/bin/*; do chmod +x $f; done'

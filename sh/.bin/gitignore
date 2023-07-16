@@ -13,7 +13,7 @@ EOF
 
 if [ -z "$1" ] || [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
     help
-    return 0
+    exit 0
 fi
 
 output=${2:-.gitignore}

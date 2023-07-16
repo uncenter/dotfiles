@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # 
-# ~/.config/sh/environ - sh/bash/zsh environment variables.
+# ~/.config/sh/env - sh/bash/zsh environment variables.
 
 # Load XDG specifications.
 [ -f ~/.config/sh/xdg ] && . ~/.config/sh/xdg
@@ -14,6 +14,8 @@ export VISUAL="code"
 export LESS="-R"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
-export PATH="${XDG_BIN_HOME:-$HOME/.local/bin}:${PATH}"
-export PATH="/opt/homebrew/opt/openjdk/bin:${PATH}"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+if ! cat /etc/paths | grep "$HOME/.bin" > /dev/null 2>&1; then
+    echo "$HOME/.bin" | sudo tee -a /etc/paths > /dev/null
+fi
+export PATH="${XDG_BIN_HOME:-$HOME/.local/bin}:$PATH"
+export PATH="$PYENV_ROOT/bin:$PATH"
