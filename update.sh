@@ -1,9 +1,9 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 # 
 # update.sh - update dotfiles
 
-# Ensure required commands are availables
-cmds=(brew fnm npm pip3 git)
+# Ensure required commands are available
+cmds=(brew fnm npm pip3 git gum)
 for cmd in ${cmds[@]}; do
     if ! command -v $cmd &> /dev/null; then
         echo "Update failed: required command \`$cmd\` not found"
@@ -11,28 +11,39 @@ for cmd in ${cmds[@]}; do
     fi
 done
 
-echo "Updating Brewfile..."
-brew bundle dump --force
+success() {
+    gum style --foreground=2 "✓ $1"
+}
 
-# Save global npm packages for each node installation
+fail() {
+    gum style --foreground=1 "✗ $1"
+}
+
+warn() {
+    gum style --foreground=3 "* $1"
+}
+
+info() {
+    gum style --foreground=4 "ℹ $1"
+}
+
+gum spin --title "Updating Brewfile..." -- brew bundle dump --force && success "Updated Brewfile."
+
 node_versions=$(fnm list | grep -Eo 'v[0-9]+\.[0-9]+\.[0-9]+')
 node_current=$(fnm current)
 for v in $node_versions; do
     fnm use $v &> /dev/null
-    echo "Updating Npmfile-$v..."
-    npm list --global --parseable --depth=0 | sed '1d' |awk -F"/node_modules/" '{print $2}' > Npmfile-$v
+    npm list --global --parseable --depth=0 | sed '1d' |awk -F"/node_modules/" '{print $2}' > Npmfile-$v && success "Updated Npmfile-$v."
 done
 fnm use $node_current &> /dev/null
-
-# Save fnm versions and aliases
-echo "Updating Fnmfile..."
-fnm list | grep -Eo '(v[0-9]+\.[0-9]+\.[0-9]+)( [A-Za-z0-9_]+)?' | awk '{print $1, $2}' > Fnmfile
-
-echo "Updating requirements.txt..."
-pip3 freeze --user > requirements.txt
-
-read -r -n 1 -p "Commit and push? [y/N] " response
+gum spin --show-output --title "Updating Fnmfile..." -- fnm list | grep -Eo '(v[0-9]+\.[0-9]+\.[0-9]+)( [A-Za-z0-9_]+)?' | awk '{print $1, $2}' > Fnmfile && success "Updated Fnmfile."
+gum spin --show-output --title "Updating requirements.txt..." -- pip3 freeze --user > requirements.txt && success "Updated requirements.txt."
+info "Done! Dotfiles updated."
+echo -en "\033[0;36mCommit and push? [y/N] \033[0m"
+read -r -n 1 response
 echo
 if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-    git add . && git commit -m "chore: update dotfiles" && git push
+    git add . && git commit -m "chore: update dotfiles" && git push && success "Changes committed." || fail "Changes not committed."
+else
+    warn "Changes unsaved."
 fi
