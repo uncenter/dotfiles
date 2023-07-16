@@ -17,6 +17,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias cl='clear'
 alias dev='cd $XDG_DEV_DIR'
+alias py='python'
 
 # Git aliases.
 alias pull='git pull origin'
