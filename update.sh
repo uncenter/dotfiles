@@ -24,10 +24,10 @@ warn() {
 }
 
 info() {
-    gum style --foreground=4 "ℹ $1"
+    gum style --foreground=4 "i $1"
 }
 
-gum spin --title "Updating Brewfile..." -- brew bundle dump --force && success "Updated Brewfile."
+gum spin --spinner.foreground="255" --title "Updating Brewfile..." -- brew bundle dump --force && success "Updated Brewfile."
 
 node_versions=$(fnm list | grep -Eo 'v[0-9]+\.[0-9]+\.[0-9]+')
 node_current=$(fnm current)
@@ -36,10 +36,10 @@ for v in $node_versions; do
     npm list --global --parseable --depth=0 | sed '1d' |awk -F"/node_modules/" '{print $2}' > Npmfile-$v && success "Updated Npmfile-$v."
 done
 fnm use $node_current &> /dev/null
-gum spin --show-output --title "Updating Fnmfile..." -- fnm list | grep -Eo '(v[0-9]+\.[0-9]+\.[0-9]+)( [A-Za-z0-9_]+)?' | awk '{print $1, $2}' > Fnmfile && success "Updated Fnmfile."
-gum spin --show-output --title "Updating requirements.txt..." -- pip3 freeze --user > requirements.txt && success "Updated requirements.txt."
+gum spin --spinner.foreground="255" --show-output --title "Updating Fnmfile..." -- fnm list | grep -Eo '(v[0-9]+\.[0-9]+\.[0-9]+)( [A-Za-z0-9_]+)?' | awk '{print $1, $2}' > Fnmfile && success "Updated Fnmfile."
+gum spin --spinner.foreground="255" --show-output --title "Updating requirements.txt..." -- pip3 freeze --user > requirements.txt && success "Updated requirements.txt."
 info "Done! Dotfiles updated."
-echo -en "\033[0;36mCommit and push? [y/N] \033[0m"
+echo -en "\033[0;36m? Commit and push? [y/N] \033[0m"
 read -r -n 1 response
 echo
 if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
