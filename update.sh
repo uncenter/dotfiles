@@ -21,7 +21,7 @@ for v in $node_versions; do
 done
 fnm use $node_current &> /dev/null
 echo "Updating requirements.txt..."
-pip3 freeze > requirements.txt
+pip3 freeze --user > requirements.txt
 read -r -n 1 -p "Commit and push? [y/N] " response
 echo
 if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
