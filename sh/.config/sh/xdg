@@ -16,6 +16,8 @@ export XDG_DEV_DIR="$HOME/Dev"
 
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
+export SHELL_SESSIONS_DISABLE=1
+
 export GIT_CONFIG_GLOBAL="$XDG_CONFIG_HOME/git/config"
 
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc.py"
