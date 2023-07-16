@@ -21,8 +21,8 @@ I like to keep my home directory as clean as possible in accordance with the [XD
 
 ## Dotfiles manager
 
-I'm using [GNU Stow](https://www.gnu.org/software/stow/) - a free, lightweight
-dotfiles manager written in Perl. I really don't know why I went with it other than it is simple and basic. I have tried a few others, such as [chezmoi](https://www.chezmoi.io/), but they were overcomplicated or just annoying to use. I used this [incredibly helpful guide](https://www.jakewiesler.com/blog/managing-dotfiles) to get started with `stow` and it has been working great so far.
+I'm using [GNU Stow](https://www.gnu.org/software/stow/) ([documentation](https://www.gnu.org/software/stow/manual/stow.html)) - a free and lightweight
+dotfiles manager written in Perl. I have tried a few dotfile managers such as [chezmoi](https://www.chezmoi.io/), but all were overcomplicated and just annoying to use. I used this [incredibly helpful guide](https://www.jakewiesler.com/blog/managing-dotfiles) to get started with `stow` and it has been working great so far!
 
 ## Getting started
 
@@ -30,13 +30,16 @@ dotfiles manager written in Perl. I really don't know why I went with it other t
 brew install stow
 ```
 
-Once the installation is complete, make a clone of the repository:
-
 ```sh
 git clone https://github.com/uncenter/dotfiles.git .dotfiles
 ```
 
-You can now install any configurations you wish to copy using GNU Stow.
+You can now install any configurations you wish with `stow`:
+
+```sh
+cd .dotfiles
+stow --target=$HOME <package>
+```
 
 ## Caveats
 
