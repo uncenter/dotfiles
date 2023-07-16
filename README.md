@@ -52,17 +52,6 @@ ln -s ~/.config/zsh/zshenv .zshenv
 
 Only `.zshenv` is required for `zsh` to work properly as it is the first file in a chain of files (`.zshenv` -> `sh/profile` -> `sh/env` -> `zsh/xdg` -> sets `$ZDOTDIR` -> `.zshrc`). I don't use `bash` but I keep it around just in case.
 
-### Dumb CLIs
-
-`silicon` needs themes and to do so we need to create a symlink to the themes directory (after stowing all the configs, or at least just `bat`):
-
-```bash
-ln -s ~/.config/bat/themes/ ~/.config/themes
-silicon --build-cache
-```
-
-**Note:** Silicon may also error if there isn't a `~/.config/syntaxes` directory. This can be fixed by creating the directory and then running `silicon --build-cache` again.
-
 ## License
 
 Unlicensed, take what you like.
