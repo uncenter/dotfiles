@@ -6,4 +6,23 @@
 [ -f ~/.config/sh/env ] && . ~/.config/sh/env
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+
 eval "$(pyenv init -)"
+
+paths=(
+    "$PYENV_ROOT/bin"
+    "$GOPATH/bin"
+    "$HOME/.cargo/bin"
+    "$XDG_BIN_HOME"
+    "$HOME/.bin"
+)
+for p in "${paths[@]}"; do
+    case ":${PATH}:" in
+        *:"$p":*)
+            ;;
+        *)
+            export PATH="$p:$PATH"
+            ;;
+    esac
+done

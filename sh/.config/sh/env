@@ -13,22 +13,3 @@ export EDITOR="hx"
 export VISUAL="code"
 export LESS="-R"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-
-if ! cat /etc/paths | grep "$HOME/.bin" > /dev/null 2>&1; then
-    echo "$HOME/.bin" | sudo tee -a /etc/paths > /dev/null
-fi
-paths=(
-    "$XDG_BIN_HOME"
-    "$GOPATH/bin"
-    "$PYENV_ROOT/bin"
-    "$HOME/.cargo/bin"
-)
-for p in "${paths[@]}"; do
-    case ":${PATH}:" in
-        *:"$p":*)
-            ;;
-        *)
-            export PATH="$p:$PATH"
-            ;;
-    esac
-done
