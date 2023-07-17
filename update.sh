@@ -37,7 +37,7 @@ for v in $node_versions; do
 done
 fnm use $node_current &> /dev/null
 gum spin --spinner.foreground="255" --show-output --title "Updating Fnmfile..." -- fnm list | grep -Eo '(v[0-9]+\.[0-9]+\.[0-9]+)( [A-Za-z0-9_]+)?' | awk '{print $1, $2}' > Fnmfile && success "Updated Fnmfile."
-gum spin --spinner.foreground="255" --show-output --title "Updating requirements.txt..." -- pip3 freeze --user > requirements.txt && success "Updated requirements.txt."
+gum spin --spinner.foreground="255" --show-output --title "Updating requirements.txt..." -- python -m pip freeze > requirements.txt && success "Updated requirements.txt."
 info "Done! Dotfiles updated."
 echo -en "\033[0;36m? Commit and push? [y/N] \033[0m"
 read -r -n 1 response
