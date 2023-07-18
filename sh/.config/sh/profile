@@ -15,7 +15,7 @@ paths=(
     "$GOPATH/bin"
     "$HOME/.cargo/bin"
     "$XDG_BIN_HOME"
-    "$HOME/.bin"
+    "$XDG_SCRIPT_DIR"
 )
 for p in "${paths[@]}"; do
     case ":${PATH}:" in

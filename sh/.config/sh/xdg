@@ -10,7 +10,9 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_BIN_HOME="$HOME/.local/bin"
 export XDG_TRASH_HOME="$HOME/.Trash"
+# Custom XDG directories.
 export XDG_DEV_DIR="$HOME/Dev"
+export XDG_SCRIPT_DIR="$HOME/.bin"
 
 # Environment variables for specific programs.
 
