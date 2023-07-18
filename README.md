@@ -1,7 +1,7 @@
 <h1>Dotfiles</h1>
 
 ![macOS](https://img.shields.io/badge/macOS-13.5-47999e.svg?style=flat-square)
-[![GNU Stow](https://img.shields.io/badge/GNU%20Stow-2.3.1-b48ead.svg?style=flat-square)](https://www.gnu.org/software/stow/)
+[![GNU Stow](https://img.shields.io/homebrew/v/stow?style=flat-square&label=GNU%20Stow&color=b48ead)](https://formulae.brew.sh/formula/stow)
 
 My dotfiles configuration for macOS!
 
