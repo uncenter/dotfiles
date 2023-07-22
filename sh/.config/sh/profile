@@ -12,6 +12,7 @@ eval "$(pyenv init -)"
 
 paths=(
     "$PYENV_ROOT/bin"
+    "$(brew --prefix ccache)/libexec"
     "$GOPATH/bin"
     "$HOME/.cargo/bin"
     "$XDG_BIN_HOME"
