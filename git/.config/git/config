@@ -5,6 +5,7 @@
 [core]
 	excludesfile = /Users/uncenter/.config/git/ignore
 	pager = diff-so-fancy | less --tabs=4 -RFX
+	editor = code --wait
 [commit]
 	gpgsign = true
 [init]
