@@ -1,4 +1,5 @@
 @11ty/eleventy-dev-server
 corepack
+lighthouse
 np
 npm
