@@ -59,9 +59,9 @@ Only `.zshenv` is required for `zsh` to work properly as it is the first file in
 
 Some applications I use are not available on Homebrew, so I install them manually:
 
--   [uncenter/wifi-password](https://github.com/uncenter/wifi-password) - a simple script to get the password of the WiFi you're currently connected to
--   [uncenter/feed-newsboat](https://github.com/uncenter/feed-newsboat) - a CLI wrapper to simplify managing newsboat
+-   [uncenter/wifi-password](https://github.com/uncenter/wifi-password) - a simple script to get the password of the WiFi you're currently connected to.
+-   [uncenter/fn](https://github.com/uncenter/fn) - a CLI wrapper to simplify managing Newsboat.
 
 ## License
 
-Unlicensed, take what you like.
+Creative Commons Zero v1.0 Universal
