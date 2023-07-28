@@ -1,35 +1,59 @@
-#!/usr/bin/env zsh
+#!/bin/bash
 
-help() {
+usage() {
     cat <<EOF
 docs - versatile man alias
 
 Usage: docs [-p|-o] <command>
 
 Options:
-    -p  Open documentation in Preview.
-    -o  Open documentation in browser.
+    -p          Open documentation in Preview.
+    -o          Open documentation in the default browser.
+    -h, --help  Show this help message.
 EOF
 }
 
-if [ -z "$1" ] || [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
-    help
+check_exists() {
+    if ! man -w "$1" > /dev/null 2>&1; then
+        echo "Error: Manual page for '$1' does not exist."
+        exit 1
+    fi
+}
+
+if [ $# -eq 0 ] || [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
+    usage
     exit 0
 fi
 
-if ! man "$1" > /dev/null 2>&1; then
-    echo "Manual page for '$1' does not exist."
-    exit 1
-fi
+x="$1"
+shift
 
-if [[ "$1" == "-p" ]]; then
-    echo "Opening page for '${@:2}' in Preview..."
-    for page in "${(@f)"$(man -w "${@:2}")"}"; do
-        command mandoc -Tpdf "$page" | open -f -a Preview
-    done
-elif [[ "$1" == "-o" ]]; then
-    echo "Opening page for '$2' in browser..."
-    open "https://ss64.com/osx/$2.html"
-else
-    man "$@"
-fi
+case "$x" in
+    -p)
+        for page in "$@"; do
+            check_exists "$page"
+            echo "Opening page for '$page' in Preview..."
+            mandoc -Tpdf "$(man -w $page)" | open -f -a Preview
+        done
+        ;;
+    -o)
+        for page in "$@"; do
+            check_exists "$page"
+            url="https://ss64.com/osx/$page.html"
+            if [ "$(curl -I -o /dev/null -s -w "%{http_code}" "$url")" -eq 404 ]; then
+                echo "The page for '$page' returned a 404 status code."
+                exit 1
+            fi
+            echo "Opening page for '$page' in the default browser..."
+            open "https://ss64.com/osx/$page.html"
+        done
+        ;;
+    *)
+        check_exists "$x"
+        man "$x"
+        for page in "$@"; do
+            check_exists "$page"
+            man "$page"
+        done
+        ;;
+esac
