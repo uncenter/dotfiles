@@ -1,11 +1,8 @@
 #!/usr/bin/env zsh
-#
-# docs - Open documentation for a command in browser, Preview, or man.
 
 help() {
     cat <<EOF
-
-docs - versatile documentation viewer
+docs - versatile man alias
 
 Usage: docs [-p|-o] <command>
 
@@ -18,6 +15,11 @@ EOF
 if [ -z "$1" ] || [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
     help
     exit 0
+fi
+
+if ! man "$1" > /dev/null 2>&1; then
+    echo "Manual page for '$1' does not exist."
+    exit 1
 fi
 
 if [[ "$1" == "-p" ]]; then

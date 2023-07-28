@@ -1,10 +1,7 @@
 #!/usr/bin/env zsh
-#
-# gitignore - Download a .gitignore template from https://www.toptal.com/developers/gitignore/api/list and remove annoying comments.
 
 help() {
     cat <<EOF
-
 gitignore - create a .gitignore file from a template
 
 Usage: gitignore <template> [output]
@@ -18,6 +15,6 @@ fi
 
 output=${2:-.gitignore}
 curl -sL "https://www.toptal.com/developers/gitignore/api/$1" > "$output"
-sed -i '' -e '1,3d' .gitignore
-sed -i '' -e '$d' .gitignore
-sed -i '' -e '$d' .gitignore
+sed -i '' -e '1,3d' $output
+sed -i '' -e '$d' $output
+sed -i '' -e '$d' $output

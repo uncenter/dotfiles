@@ -1,10 +1,7 @@
 #!/usr/bin/env zsh
-#
-# clone - Clone a repository using gh or git (detects if it's a URL or owner/repo) and prompt to change directory.
 
 help() {
     cat <<EOF
-
 clone - clone with gh or git in the right directory
 
 Usage: clone <repo|owner/repo|URL> [directory]
@@ -20,12 +17,12 @@ if [ -z "$1" ] || [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
     exit 0
 fi
 
-CLONE_DIR=${XDG_DEV_DIR:-"$HOME/Dev"}
+CLONE_DIR=${XDG_DEV_DIR:-"$HOME"}
 if [[ $PWD != "$CLONE_DIR" ]]; then
     printf "Are you sure you want to clone in $PWD? (y/n/cd) \c"; 
     read -r answer; 
     if [[ $answer == "n" ]]; then
-        echo "Aborted!"
+        echo "Aborted."
         exit 1
     fi
     if [[ $answer == "cd" ]]; then

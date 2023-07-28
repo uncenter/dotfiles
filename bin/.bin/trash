@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
-#
-# trash - Move files to a trash directory instead of deleting them.
 
 help() {
     cat <<EOF
-
 trash - move files to the trash directory instead of deleting them
 
 Usage: trash <files>...
