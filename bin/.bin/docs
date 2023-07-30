@@ -3,15 +3,17 @@
 usage() {
     cat <<EOF
 docs - versatile man alias
+usage: docs [-p|-o] <command>
 
-Usage: docs [-p|-o] <command>
-
-Options:
-    -p          Open documentation in Preview.
-    -o          Open documentation in the default browser.
-    -h, --help  Show this help message.
+-p          Open in Preview.
+-o          Open in the default browser.
 EOF
 }
+
+if [ $# -eq 0 ] || [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
+    usage
+    exit 0
+fi
 
 check_exists() {
     if ! man -w "$1" > /dev/null 2>&1; then
@@ -19,11 +21,6 @@ check_exists() {
         exit 1
     fi
 }
-
-if [ $# -eq 0 ] || [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
-    usage
-    exit 0
-fi
 
 x="$1"
 shift

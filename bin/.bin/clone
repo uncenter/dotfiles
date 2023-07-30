@@ -1,19 +1,22 @@
 #!/usr/bin/env zsh
 
-help() {
+usage() {
     cat <<EOF
 clone - clone with gh or git in the right directory
-
-Usage: clone <repo|owner/repo|URL> [directory]
-
-Examples:
-    clone zsh-users/zsh-autosuggestions
-    clone https://github.com/zsh-users/zsh-autosuggestions
+usage: clone <repo|owner/repo|URL> [directory]
 EOF
 }
 
-if [ -z "$1" ] || [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
-    help
+if [ -z "$1" ]; then
+    usage
+    exit 0
+elif [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
+    usage
+    echo
+    cat <<EOF
+$ clone zsh-users/zsh-autosuggestions
+$ clone https://github.com/zsh-users/zsh-autosuggestions
+EOF
     exit 0
 fi
 
@@ -34,7 +37,7 @@ if [[ $1 == http://* || $1 == https://* ]]; then
     git clone "$@"
 else
     if ! command -v gh > /dev/null 2>&1; then
-        echo "gh is not installed."
+        echo "Required command \`gh\` not installed."
         exit 1
     fi
     gh repo clone "$@" 

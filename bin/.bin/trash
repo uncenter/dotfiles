@@ -1,15 +1,14 @@
 #!/usr/bin/env bash
 
-help() {
+usage() {
     cat <<EOF
 trash - move files to the trash directory instead of deleting them
-
-Usage: trash <files>...
+usage: trash <files>...
 EOF
 }
 
 if [ -z "$1" ] || [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
-    help
+    usage
     exit 0
 fi
 
@@ -25,15 +24,13 @@ prompt() {
 
 TRASH_DIR="${XDG_TRASH_HOME:-${HOME}/.Trash}"
 if [ ! -d "$TRASH_DIR" ]; then
-    echo "Could not find $TRASH_DIR directory..."
-    prompt "Create it?" || exit 1
     mkdir "$TRASH_DIR"
 fi
 
-trash_deletion_limit_mb=500
+deletion_limit=500
 failed=()
 successful=0
-total_deleted_mb=0
+total_deleted=0
 
 for var in "$@"; do
     if [ ! -e "$var" ]; then
@@ -55,20 +52,20 @@ for var in "$@"; do
         fi
     fi
     size="$(du -sm "$var" | cut -f1)"
-    if [ "$size" -gt "$trash_deletion_limit_mb" ]; then
-        echo "File '$var' ($(numfmt --from=si --to=si ${size}M)B) is larger than $(numfmt --from=si --to=si ${trash_deletion_limit_mb}M)B."
+    if [ "$size" -gt "$deletion_limit" ]; then
+        echo "File '$var' ($(numfmt --from=si --to=si ${size}M)B) is larger than $(numfmt --from=si --to=si ${deletion_limit}M)B."
         prompt "Are you sure you want to move it to trash?" || exit 1
     fi
     if mv "$var" "$destination"; then
         ((successful=successful+1))
-        ((total_deleted_mb=total_deleted_mb+size))
+        ((total_deleted=total_deleted+size))
         touch "$destination"
     else
         failed+=("$var")
     fi
 done
 if [ $successful -gt 0 ]; then
-    echo "Trashed ${successful} file$([[ $successful -eq 1 ]] || echo "s") ($(numfmt --from=si --to=si ${total_deleted_mb}M)B)."
+    echo "Trashed ${successful} file$([[ $successful -eq 1 ]] || echo "s") ($(numfmt --from=si --to=si ${total_deleted}M)B)."
 fi
 if [ ${#failed[@]} -gt 0 ]; then
     echo "Failed (${#failed[@]}):"

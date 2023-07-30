@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+usage() {
+    echo "usage: git-branch-rm <branch> [remote]"
+}
+
+delete_local_branch() {
+    git branch -d "$1" 2>/dev/null || echo "error: $1 does not exist locally"
+}
+
+delete_remote_branch() {
+    git push "$1" --delete "$2" 2>/dev/null || echo "error: $1/$2 does not exist remotely"
+}
+
+if [[ $# -lt 1 ]]; then
+    usage
+    exit 1
+fi
+
+remote=${1:-origin}
+
+delete_local_branch "$1"
+delete_remote_branch "${2:-origin}" "$1"

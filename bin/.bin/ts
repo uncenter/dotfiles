@@ -1,0 +1,20 @@
+#!/usr/bin/env zsh
+
+usage() {
+    cat <<EOF
+timestamp - convert unix timestamp to a readable datetime
+usage: ts <timestamp>
+EOF
+}
+
+if ! command -v gdate &> /dev/null; then
+    echo "Required command \`gdate\` is not installed."
+    exit 1
+fi
+
+if [ -z "$1" ] || [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
+    usage
+    exit 1
+fi
+
+echo $(gdate -d @"$1" "+%B %d, %Y %T")
