@@ -43,17 +43,16 @@ stow --target=$HOME <package>
 
 ## Caveats
 
-### `zsh` and `bash`
+### `bash`
 
-For the configuration of `zsh` and `bash`, you will need to create two
-symbolic aliases:
+For the configuration of  `bash`, you will need to create a
+symbolic alias:
 
 ```bash
 ln -s ~/.config/bash/.bashrc ~
-ln -s ~/.config/zsh/zshenv .zshenv
 ```
 
-Only `.zshenv` is required for `zsh` to work properly as it is the first file in a chain of files (`.zshenv` -> `sh/profile` -> `sh/env` -> `zsh/xdg` -> sets `$ZDOTDIR` -> `.zshrc`). I don't use `bash` but I keep it around just in case.
+I don't really use `bash` but I keep it around just in case.
 
 ## Other packages
 

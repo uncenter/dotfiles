@@ -46,6 +46,13 @@ antidote load "${ZDOTDIR:-$HOME}/.zsh_plugins.txt"
 # Aliases
 [ -f "${XDG_CONFIG_HOME}/sh/aliases" ] && source "${XDG_CONFIG_HOME}/sh/aliases"
 
+# Newline fix.
+precmd() {
+  precmd() {
+    echo
+  }
+}
+
 eval "$(starship init zsh)"
 eval "$(fnm env)"
 eval "$(atuin init zsh)"

@@ -18,8 +18,8 @@ alias mkdir='mkdir -p'
 alias cp='cp -i'
 alias mv='mv -i'
 alias cl='clear'
-alias dev='cd $XDG_DEV_DIR'
 alias py='python'
+alias dig='doggo'
 
 # Git aliases.
 alias pull='git pull origin'
@@ -29,6 +29,7 @@ alias add='git add'
 alias status='git status'
 
 # Shortcuts.
+alias dev='cd $XDG_DEV_DIR'
 alias uppercase='tr "[:lower:]" "[:upper:]"'
 alias lowercase='tr "[:upper:]" "[:lower:]"'
 alias reload='source ${ZDOTDIR:-$HOME}/.zshrc'
@@ -53,8 +54,6 @@ alias rm_dsstore="fd -H '^\.DS_Store$' -tf -X rm"
 
 alias stfu="osascript -e 'set volume output muted true'"
 alias pumpitup="osascript -e 'set volume output volume 100'"
-
 alias update="brew update; brew upgrade; brew cleanup --prune=all; rm_dsstore; disable_dsstore; softwareupdate -i -a --verbose;"
 alias emptytrash="sudo rm -rfv ~/.Trash"
-
 alias binup='for f in ~/.bin/*; do chmod +x $f; done'

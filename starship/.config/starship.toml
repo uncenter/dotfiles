@@ -1,6 +1,6 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-add_newline = true
+add_newline = false
 palette = "catppuccin_macchiato"
 continuation_prompt = '[](yellow) '
 right_format = '$cmd_duration'
