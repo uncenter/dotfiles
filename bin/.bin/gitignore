@@ -3,7 +3,7 @@
 usage() {
     cat <<EOF
 gitignore - create a .gitignore file from a template
-usage: gitignore <template> [output]
+usage: gitignore <template> [file]
 EOF
 }
 
@@ -23,31 +23,32 @@ if [ ! -e "$cache_store" ];then
     touch "$cache_store"
 fi
 . "$cache_store"
-cache_update() {
-    local key="$cache_prefix$1"
-    curl -sL "$url/$1" > "$cache_dir/$1"
-    if [ ! $(grep "$key=" "$cache_store") ]; then
-        echo "$key=$(date +%s)" >> "$cache_store"
-    else
-        sed -i '' -e "s/^$key=.*/$key=$(date +%s)/" "$cache_store"
-    fi
-    . "$cache_store"
-}
-cache_get() {
+get() {
     eval "old_dt=\${$cache_prefix$1}"
     if [ ! -s "$cache_dir/$1" ] || [ "$(($(date +%s) - ${old_dt}))" -ge "$((7 * 24 * 60 * 60))" ]; then
-        cache_update $1
+        local key="$cache_prefix$1"
+        curl -sL "$url/$1" > "$cache_dir/$1"
+        if [ ! $(grep "$key=" "$cache_store") ]; then
+            echo "$key=$(date +%s)" >> "$cache_store"
+        else
+            sed -i '' -e "s/^$key=.*/$key=$(date +%s)/" "$cache_store"
+        fi
+        . "$cache_store"
     fi
     echo "$cache_dir/$1"
 }
 
-if [ ! $(grep -E "(?:^|,)$1(?:$|,)" "$(cache_get list)") ]; then
-    echo "'$1' not found."
+if [ ! $(grep -E "(?:^|,)$1(?:$|,)" "$(get list)") ]; then
+    echo "error: '$1' not found"
+    echo "Did you mean..."
+    while IFS= read -r line; do
+        echo " - $line"
+    done <<< "$(grep -Eo "(?:^|,)(.*py.*)(?:$|,)" /Users/uncenter/.cache/gitignore/list | tr ',' '\n' | grep -E "py")"
     exit 1
 fi
 
-output=${2:-.gitignore}
-cat "$(cache_get $1)" > "$output"
-sed -i '' -e '1,3d' $output
-sed -i '' -e '$d' $output
-sed -i '' -e '$d' $output
+file=${2:-.gitignore}
+cat "$(get $1)" > "$file"
+sed -i '' -e '1,3d' $file
+sed -i '' -e '$d' $file
+sed -i '' -e '$d' $file
