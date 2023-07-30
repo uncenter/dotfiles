@@ -1,20 +1,53 @@
 #!/usr/bin/env zsh
 
-help() {
+usage() {
     cat <<EOF
 gitignore - create a .gitignore file from a template
-
-Usage: gitignore <template> [output]
+usage: gitignore <template> [output]
 EOF
 }
 
 if [ -z "$1" ] || [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
-    help
+    usage
     exit 0
 fi
 
+url='https://www.toptal.com/developers/gitignore/api'
+cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/gitignore"
+cache_store="$cache_dir/cachestore"
+cache_prefix="_GITIGNORE_CACHE_"
+if [ ! -d "$cache_dir" ]; then
+    mkdir "$cache_dir"
+fi
+if [ ! -e "$cache_store" ];then
+    touch "$cache_store"
+fi
+. "$cache_store"
+cache_update() {
+    local key="$cache_prefix$1"
+    curl -sL "$url/$1" > "$cache_dir/$1"
+    if [ ! $(grep "$key=" "$cache_store") ]; then
+        echo "$key=$(date +%s)" >> "$cache_store"
+    else
+        sed -i '' -e "s/^$key=.*/$key=$(date +%s)/" "$cache_store"
+    fi
+    . "$cache_store"
+}
+cache_get() {
+    eval "old_dt=\${$cache_prefix$1}"
+    if [ ! -s "$cache_dir/$1" ] || [ "$(($(date +%s) - ${old_dt}))" -ge "$((7 * 24 * 60 * 60))" ]; then
+        cache_update $1
+    fi
+    echo "$cache_dir/$1"
+}
+
+if [ ! $(grep -E "(?:^|,)$1(?:$|,)" "$(cache_get list)") ]; then
+    echo "'$1' not found."
+    exit 1
+fi
+
 output=${2:-.gitignore}
-curl -sL "https://www.toptal.com/developers/gitignore/api/$1" > "$output"
+cat "$(cache_get $1)" > "$output"
 sed -i '' -e '1,3d' $output
 sed -i '' -e '$d' $output
 sed -i '' -e '$d' $output
