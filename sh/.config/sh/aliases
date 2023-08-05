@@ -2,6 +2,8 @@
 # 
 # ~/.config/sh/aliases - sh/bash/zsh aliases.
 
+export YSU_MESSAGE_FORMAT="$(tput setaf 1)Hey! I found this %alias_type for '%command': '%alias'.$(tput sgr0)"
+
 have() { command -v "$1" > /dev/null 2>&1; } # Verify that a package is installed.
 take() { mkdir -p "$1" && cd "$1" || return 1; } # Create a directory and change into it.
 alias mkcd=take
