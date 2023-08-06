@@ -44,4 +44,4 @@ export GNUPGHOME="${GNUPGHOME:-$XDG_CONFIG_HOME/gnupg}"
 export TEALDEER_CONFIG_DIR="$XDG_CONFIG_HOME/tealdeer"
 export TEALDEER_CACHE_DIR="$XDG_CACHE_HOME/tealdeer"
 
-export GOPATH="${GOPATH:-$HOME/.go}"
+export GOPATH="${GOPATH:-$XDG_DATA_HOME/go}"

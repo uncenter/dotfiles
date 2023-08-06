@@ -21,7 +21,9 @@ spin() {
   gum spin --spinner.foreground="255" --title "$title" "$@"
 }
 
-brew upgrade && brew upgrade && brew cleanup --prune=all &> /dev/null;
+brew upgrade &> /dev/null
+brew update &> /dev/null
+brew cleanup --prune=all &> /dev/null
 spin "Updating Brewfile..." -- brew bundle dump --force && success "Updated Brewfile."
 
 node_versions=$(fnm list | grep -Eo 'v[0-9]+\.[0-9]+\.[0-9]+')
@@ -35,11 +37,30 @@ spin "Updating Fnmfile..." --show-output -- fnm list | grep -Eo '(v[0-9]+\.[0-9]
 spin "Updating requirements.txt..." --show-output -- python -m pip freeze > requirements.txt && success "Updated requirements.txt."
 spin "Updating README.md..." --show-output -- sd "macOS-(\d*\.?\d+)" "macOS-$(sw_vers -productVersion)" README.md
 info "Done! Dotfiles updated."
-echo -en "\033[0;36m? Commit and push? [y/N] \033[0m"
+echo -en "\033[0;36m? Commit changes? (y/N) \033[0m"
 read -r -n 1 response
 echo
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-    git add . && git commit -m "chore: update dotfiles" && git push && success "Changes committed." || fail "Changes not committed."
+if [[ $response =~ ^[Yy]$ ]]; then
+    untracked_files=$(git ls-files --others --exclude-standard)
+    if [ -n "$untracked_files" ]; then
+        if [ "$(echo "$untracked_files" | wc -l)" -eq 1 ]; then
+            file_to_add=$(echo "$untracked_files" | head -n 1)
+            echo "You have an untracked file: $file_to_add"
+            echo -en "\033[0;36m? Add it to the commit? (y/N) \033[0m"
+            read -r -n 1 response
+            echo
+            if [[ "$response" =~ ^[Yy]$ ]]; then
+                git add "$file_to_add"
+            fi
+        else
+            echo "You have untracked files. Select from below to add them to the commit:"
+            gum choose --no-limit $untracked_files | while IFS= read -r line; do
+                git add "$line"
+            done
+        fi
+    fi
+    git add -u
+    git commit -m "chore: update dotfiles" &> /dev/null && success "Changes committed." || fail "Changes not committed (something went wrong)."
 else
     warn "Changes unsaved."
 fi

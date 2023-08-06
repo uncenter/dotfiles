@@ -43,7 +43,7 @@ symbol = ' '
 [character]
 success_symbol = "[](green)"
 error_symbol = "[](red)"
-vicmd_symbol = "[](green)"
+vimcmd_symbol = "[](green)"
 
 [shell]
 bash_indicator = '<bash>'
