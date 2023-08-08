@@ -58,6 +58,7 @@ brew "starship"
 brew "stow"
 brew "tealdeer"
 brew "tree"
+brew "trurl"
 brew "vhs"
 brew "vsce"
 brew "wget"
@@ -65,6 +66,7 @@ brew "xh"
 brew "yt-dlp"
 brew "caarlos0/tap/fork-cleaner"
 brew "ryanccn/tap/choirpack"
+cask "1password"
 cask "1password-cli"
 cask "alt-tab"
 cask "arc"
@@ -92,11 +94,9 @@ cask "zoom"
 mas "1Password for Safari", id: 1569813296
 mas "Amphetamine", id: 937984704
 mas "Color Picker", id: 1545870783
-mas "Day Progress", id: 6450280202
 mas "Hyperduck", id: 6444667067
 mas "Pure Paste", id: 1611378436
 mas "Shareful", id: 1522267256
-mas "Speediness", id: 1596706466
 vscode "antfu.file-nesting"
 vscode "bierner.github-markdown-preview"
 vscode "bierner.markdown-checkbox"

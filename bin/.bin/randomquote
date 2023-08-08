@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+quote=$(cat $(dirname $0)/quotes.csv | tail -n +2 | shuf -n 1 | awk -F '","' '{
+  gsub(/^"|"$/, "", $1);
+  if ($1 == "") {
+    print $2 "\n- Unknown";
+  } else {
+    print $2 "\n- " $1;
+  }
+}' | sed 's/"//g')
+cat <<EOF
+$quote
+EOF
+osascript -e "display dialog \"$quote\" buttons {\"Dismiss\"} default button \"Dismiss\"" &> /dev/null
+# sudo defaults write /Library/Preferences/com.apple.loginwindow.plist LoginwindowText "$quote"

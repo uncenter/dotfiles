@@ -1,24 +1,35 @@
 #!/usr/bin/env bash
-set -euo pipefail
 
 usage() {
     echo "usage: git-branch-rm <branch> [remote]"
 }
 
-delete_local_branch() {
-    git branch -d "$1" 2>/dev/null || echo "error: $1 does not exist locally"
-}
+current_branch() { git branch --show-current; }
 
-delete_remote_branch() {
-    git push "$1" --delete "$2" 2>/dev/null || echo "error: $1/$2 does not exist remotely"
-}
-
-if [[ $# -lt 1 ]]; then
-    usage
-    exit 1
+if [ ! $# -eq 0 ]; then
+    if [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
+        usage
+        exit 1
+    fi
 fi
 
-remote=${1:-origin}
+branch=${1:-$(current_branch)}
+remote=${2:-origin}
+if [ $branch = "main" ] || [ $branch = "master" ]; then
+    echo "Cannot delete branch '$branch' using git-branch-rm."
+    exit 1
+fi
+answer=$(basename $PWD)@$branch
+echo -n "You are attempting to delete branch '$branch'.
+To confirm, enter the name of current directory and branch ($answer): "
+read -r response
+if [ $response != "$answer" ]; then
+    echo "Given string does not match prompt."
+    exit 1
+fi
+git checkout master &> /dev/null || git checkout main &> /dev/null || (echo "Could not switch to main/master branch automatically." && exit 1)
+echo "Switched to branch '$(current_branch)'."
 
-delete_local_branch "$1"
-delete_remote_branch "${2:-origin}" "$1"
+git branch -d "$branch" &> /dev/null && echo "Deleted local branch '$branch'." || echo "Tried '$branch'; does not exist locally." 
+git push "$remote" --delete "$branch" &> /dev/null && echo "Deleted '$remote/$branch'." || echo "Tried '$remote/$branch'; does not exist remotely."
+

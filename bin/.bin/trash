@@ -13,10 +13,10 @@ if [ -z "$1" ] || [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
 fi
 
 prompt() {
-    echo -n "$1 [y/N] "
+    echo -n "$1 (y/N) "
     read -r confirmation
     echo
-    if [[ $(echo "$confirmation" | tr "[:upper:]" "[:lower:]") != "y" ]]; then
+    if [[ ! $confirmation =~ ^[Yy]$ ]]; then
         echo "Exiting."
         exit 1
     fi

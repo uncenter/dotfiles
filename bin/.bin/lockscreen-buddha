@@ -1,3 +1,0 @@
-#!/usr/bin/env sh
-
-sudo defaults write /Library/Preferences/com.apple.loginwindow.plist LoginwindowText "$(xh https://buddha-api.com/api/today | jq -r ".text,.byName" | sed 'N;s/\n/ - /')"

@@ -22,8 +22,8 @@ fi
 
 CLONE_DIR=${XDG_DEV_DIR:-"$HOME"}
 if [[ $PWD != "$CLONE_DIR" ]]; then
-    printf "Are you sure you want to clone in $PWD? (y/n/cd) \c"; 
-    read -r answer; 
+    echo -n "Are you sure you want to clone in $PWD? (y/n/cd) "
+    read -r answer
     if [[ $answer == "n" ]]; then
         echo "Aborted."
         exit 1
