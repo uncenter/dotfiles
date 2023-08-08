@@ -21,9 +21,6 @@ spin() {
   gum spin --spinner.foreground="255" --title "$title" "$@"
 }
 
-brew upgrade &> /dev/null
-brew update &> /dev/null
-brew cleanup --prune=all &> /dev/null
 spin "Updating Brewfile..." -- brew bundle dump --force && success "Updated Brewfile."
 
 node_versions=$(fnm list | grep -Eo 'v[0-9]+\.[0-9]+\.[0-9]+')
@@ -37,16 +34,16 @@ spin "Updating Fnmfile..." --show-output -- fnm list | grep -Eo '(v[0-9]+\.[0-9]
 spin "Updating requirements.txt..." --show-output -- python -m pip freeze > requirements.txt && success "Updated requirements.txt."
 spin "Updating README.md..." --show-output -- sd "macOS-(\d*\.?\d+)" "macOS-$(sw_vers -productVersion)" README.md
 info "Done! Dotfiles updated."
-echo -en "\033[0;36m? Commit changes? (y/N) \033[0m"
+echo -en "\033[0;36m? Begin commit process? (Y/n) \033[0m"
 read -r -n 1 response
 echo
-if [[ $response =~ ^[Yy]$ ]]; then
+if [[ ! $response =~ ^[Nn]$ ]]; then
     untracked_files=$(git ls-files --others --exclude-standard)
     if [ -n "$untracked_files" ]; then
         if [ "$(echo "$untracked_files" | wc -l)" -eq 1 ]; then
             file_to_add=$(echo "$untracked_files" | head -n 1)
             echo "You have an untracked file: $file_to_add"
-            echo -en "\033[0;36m? Add it to the commit? (y/N) \033[0m"
+            echo -en "\033[0;36m? Add '$file_to_add' to the commit? (y/N) \033[0m"
             read -r -n 1 response
             echo
             if [[ "$response" =~ ^[Yy]$ ]]; then
@@ -60,7 +57,18 @@ if [[ $response =~ ^[Yy]$ ]]; then
         fi
     fi
     git add -u
-    git commit -m "chore: update dotfiles" &> /dev/null && success "Changes committed." || fail "Changes not committed (something went wrong)."
+    staged=$(git diff --name-only --staged)
+    if [ -z "$staged" ]; then
+        exit 1
+    fi
+    echo "Staged files:"
+    echo $staged
+    echo -en "\033[0;36m? Commit? (y/N) \033[0m"
+    read -r -n 1 response
+    echo
+    if [[ $response =~ ^[Yy]$ ]]; then
+        git commit -m "chore: update dotfiles" &> /dev/null && success "Changes committed." || fail "Changes not committed (something went wrong)."
+    fi
 else
     warn "Changes unsaved."
 fi
