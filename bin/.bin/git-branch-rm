@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 usage() {
-    echo "usage: git-branch-rm <branch> [remote]"
+    echo "usage: git-branch-rm [branch] [remote]"
 }
 
 current_branch() { git branch --show-current; }
@@ -12,18 +12,18 @@ if [ ! $# -eq 0 ]; then
         exit 1
     fi
 fi
-
-branch=${1:-$(current_branch)}
-remote=${2:-origin}
-if [ $branch = "main" ] || [ $branch = "master" ]; then
+branch="${1:-$(current_branch)}"
+if ! git checkout test123 &> /dev/null;
+remote="${2:-origin}"
+if [ "$branch" = "main" ] || [ "$branch" = "master" ]; then
     echo "Cannot delete branch '$branch' using git-branch-rm."
     exit 1
 fi
-answer=$(basename $PWD)@$branch
+answer="$(basename $PWD)@$branch"
 echo -n "You are attempting to delete branch '$branch'.
-To confirm, enter the name of current directory and branch ($answer): "
+Confirm by entering the name of current directory and branch ($answer): "
 read -r response
-if [ $response != "$answer" ]; then
+if [ "$response" != "$answer" ]; then
     echo "Given string does not match prompt."
     exit 1
 fi

@@ -10,5 +10,5 @@ quote=$(cat $(dirname $0)/quotes.csv | tail -n +2 | shuf -n 1 | awk -F '","' '{
 cat <<EOF
 $quote
 EOF
-osascript -e "display dialog \"$quote\" buttons {\"Dismiss\"} default button \"Dismiss\"" &> /dev/null
+osascript -e "display dialog \"$quote\" buttons {\"Dismiss\"} default button \"Dismiss\"" > /dev/null
 # sudo defaults write /Library/Preferences/com.apple.loginwindow.plist LoginwindowText "$quote"

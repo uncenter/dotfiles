@@ -16,12 +16,11 @@ if [ $# -eq 0 ] || [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
 fi
 
 check_exists() {
-    if ! man -w "$1" > /dev/null 2>&1; then
-        echo "Error: Manual page for '$1' does not exist."
+    if ! man -w "$1" &> /dev/null; then
+        echo "Manual page for '$1' does not exist."
         exit 1
     fi
 }
-
 x="$1"
 shift
 

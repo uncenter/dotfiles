@@ -2,7 +2,7 @@
 
 usage() {
     cat <<EOF
-trash - move files to the trash directory instead of deleting them
+trash - move files to trash instead of deleting them
 usage: trash <files>...
 EOF
 }
@@ -12,64 +12,11 @@ if [ -z "$1" ] || [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
     exit 0
 fi
 
-prompt() {
-    echo -n "$1 (y/N) "
-    read -r confirmation
-    echo
-    if [[ ! $confirmation =~ ^[Yy]$ ]]; then
-        echo "Exiting."
-        exit 1
-    fi
-}
-
-TRASH_DIR="${XDG_TRASH_HOME:-${HOME}/.Trash}"
-if [ ! -d "$TRASH_DIR" ]; then
-    mkdir "$TRASH_DIR"
-fi
-
-deletion_limit=500
-failed=()
-successful=0
-total_deleted=0
-
-for var in "$@"; do
-    if [ ! -e "$var" ]; then
-        failed+=("$var")
+for file in "$@"; do
+    if [ ! -e "$file" ]; then
+        echo "No such file or directory '$file'."
         continue
     fi
-    filename=$(basename "$var")
-    destination="$TRASH_DIR/$filename"
-    if [ -e "$destination" ]; then
-        dt=$(date +'%l.%M.%S %p')
-        if [ -d "$var" ]; then
-            destination="$TRASH_DIR/${filename} ${dt}"
-        else
-            if [ -z "${filename%.*}" ]; then
-                destination="$TRASH_DIR/${filename} ${dt}"
-            else
-                destination="$TRASH_DIR/${filename%.*} ${dt}.${filename##*.}"
-            fi
-        fi
-    fi
-    size="$(du -sm "$var" | cut -f1)"
-    if [ "$size" -gt "$deletion_limit" ]; then
-        echo "File '$var' ($(numfmt --from=si --to=si ${size}M)B) is larger than $(numfmt --from=si --to=si ${deletion_limit}M)B."
-        prompt "Are you sure you want to move it to trash?" || exit 1
-    fi
-    if mv "$var" "$destination"; then
-        ((successful=successful+1))
-        ((total_deleted=total_deleted+size))
-        touch "$destination"
-    else
-        failed+=("$var")
-    fi
+    file=$(realpath $file)
+    osascript -e "tell application \"Finder\" to delete POSIX file \"$file\"" &> /dev/null || echo "Something went wrong while deleting '$file'."
 done
-if [ $successful -gt 0 ]; then
-    echo "Trashed ${successful} file$([[ $successful -eq 1 ]] || echo "s") ($(numfmt --from=si --to=si ${total_deleted}M)B)."
-fi
-if [ ${#failed[@]} -gt 0 ]; then
-    echo "Failed (${#failed[@]}):"
-    for file in "${failed[@]}"; do
-        echo "$file"
-    done
-fi

@@ -2,7 +2,7 @@
 
 usage() {
     cat <<EOF
-gitignore - create a .gitignore file from a template
+gitignore - create a .gitignore from a template
 usage: gitignore <template> [file]
 EOF
 }

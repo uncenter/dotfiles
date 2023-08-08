@@ -1,4 +1,5 @@
--   [ ] Somehow keep track of fonts in ~/Library/Fonts?
--   [ ] Create `setup.sh`/`install.sh` script
--   [ ] Create dotfile manager for updating, init, etc?
--   [ ] Simplify Fnmfile + Npmfile mess
+- [ ] Somehow keep track of fonts in ~/Library/Fonts?
+- [ ] Save VSCode settings/snippets/custom files (`.vscode/`)
+- [ ] `setup.sh`/`install.sh`
+- [ ] Combine Fnmfile + Npmfile
+- [ ] Track cargo packages?

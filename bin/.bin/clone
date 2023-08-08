@@ -20,12 +20,11 @@ EOF
     exit 0
 fi
 
-CLONE_DIR=${XDG_DEV_DIR:-"$HOME"}
-if [[ $PWD != "$CLONE_DIR" ]]; then
+CLONE_DIR="${XDG_DEV_DIR:-"$HOME"}"
+if [[ "$PWD" != "$CLONE_DIR" ]]; then
     echo -n "Are you sure you want to clone in $PWD? (y/n/cd) "
     read -r answer
     if [[ $answer == "n" ]]; then
-        echo "Aborted."
         exit 1
     fi
     if [[ $answer == "cd" ]]; then
@@ -36,9 +35,9 @@ fi
 if [[ $1 == http://* || $1 == https://* ]]; then
     git clone "$@"
 else
-    if ! command -v gh > /dev/null 2>&1; then
+    if ! command -v gh &> /dev/null; then
         echo "Required command \`gh\` not installed."
         exit 1
     fi
-    gh repo clone "$@" 
+    gh repo clone "$@"
 fi
