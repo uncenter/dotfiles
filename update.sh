@@ -59,7 +59,8 @@ if [[ ! $response =~ ^[Nn]$ ]]; then
     git add -u
     staged=$(git diff --name-only --staged)
     if [ -z "$staged" ]; then
-        exit 1
+        echo "Nothing to save!"
+        exit 0
     fi
     echo "Staged files:"
     echo $staged
