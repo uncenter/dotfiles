@@ -36,7 +36,7 @@ alias uppercase='tr "[:lower:]" "[:upper:]"'
 alias lowercase='tr "[:upper:]" "[:lower:]"'
 alias reload='source ${ZDOTDIR:-$HOME}/.zshrc'
 
-# Other
+# Other.
 alias urldecode='python3 -c "import sys, urllib.parse as ul; \
     print(ul.unquote_plus(sys.argv[1]))"'
 alias urlencode='python3 -c "import sys, urllib.parse as ul; \
@@ -50,10 +50,9 @@ alias fdcatppuccin="rg -i -l '(latte|frapp[eé]|mocha|macchiato)' ~/.config/*"
 # OS X specific aliases.
 alias showfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 alias hidefiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
-alias rm_dsstore="fd -H '^\.DS_Store$' -tf -X rm"
-
+alias fuckdstore="fd -H '^\.DS_Store$' -tf -X rm"
 alias stfu="osascript -e 'set volume output muted true'"
 alias pumpitup="osascript -e 'set volume output volume 100'"
-alias update="brew update; brew upgrade; brew cleanup --prune=all; rm_dsstore; disable_dsstore; softwareupdate -i -a --verbose;"
+alias update="brew update; brew upgrade; brew cleanup --prune=all; softwareupdate -i -a --verbose;"
 alias emptytrash="sudo rm -rfv ~/.Trash"
 alias binup='for f in ~/.bin/*; do chmod +x $f; done'

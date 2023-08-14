@@ -33,7 +33,7 @@ fnm use $node_current &> /dev/null
 spin "Updating Fnmfile..." --show-output -- fnm list | grep -Eo '(v[0-9]+\.[0-9]+\.[0-9]+)( [A-Za-z0-9_]+)?' | awk '{print $1, $2}' > Fnmfile && success "Updated Fnmfile."
 spin "Updating requirements.txt..." --show-output -- python -m pip freeze > requirements.txt && success "Updated requirements.txt."
 spin "Updating README.md..." --show-output -- sd "macOS-(\d*\.?\d+)" "macOS-$(sw_vers -productVersion)" README.md
-info "Done! Dotfiles updated."
+info "Dotfiles updated."
 echo -en "\033[0;36m? Begin commit process? (Y/n) \033[0m"
 read -r -n 1 response
 echo
@@ -63,7 +63,9 @@ if [[ ! $response =~ ^[Nn]$ ]]; then
         exit 0
     fi
     echo "Staged files:"
-    echo $staged
+    while IFS= read -r line; do
+        echo "- $line"
+    done <<< "$staged"
     echo -en "\033[0;36m? Commit? (y/N) \033[0m"
     read -r -n 1 response
     echo
