@@ -1,5 +1,6 @@
-- [ ] Somehow keep track of fonts in ~/Library/Fonts?
+- [ ] Keep track of non-brew fonts (`~/Library/Fonts`)
 - [ ] Save VSCode settings/snippets/custom files (`.vscode/`)
 - [ ] `setup.sh`/`install.sh`
 - [ ] Combine Fnmfile + Npmfile
 - [ ] Track cargo packages?
+- [ ] Track Raycast extensions?
