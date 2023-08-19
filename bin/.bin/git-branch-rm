@@ -7,26 +7,33 @@ usage() {
 current_branch() { git branch --show-current; }
 
 if [ ! $# -eq 0 ]; then
-    if [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
+    if [[ "$1" == "-h" ]]; then
         usage
-        exit 1
+        exit 0
     fi
 fi
-branch="${1:-$(current_branch)}"
-if ! git checkout test123 &> /dev/null;
+
+if [ -z "$1" ]; then
+  echo "Automatically detected branch '$(current_branch)'." 
+  branch="$(current_branch)"
+else
+  branch="$1"
+fi
 remote="${2:-origin}"
 if [ "$branch" = "main" ] || [ "$branch" = "master" ]; then
     echo "Cannot delete branch '$branch' using git-branch-rm."
     exit 1
 fi
 answer="$(basename $PWD)@$branch"
-echo -n "You are attempting to delete branch '$branch'.
-Confirm by entering the name of current directory and branch ($answer): "
-read -r response
-if [ "$response" != "$answer" ]; then
-    echo "Given string does not match prompt."
-    exit 1
-fi
+echo "You are attempting to delete branch '$branch'. Enter the following string to confirm:"
+echo $answer
+while true; do
+    echo -n "===| "
+    read -r response
+    if [ "$response" = "$answer" ]; then
+        break
+    fi
+done
 git checkout master &> /dev/null || git checkout main &> /dev/null || (echo "Could not switch to main/master branch automatically." && exit 1)
 echo "Switched to branch '$(current_branch)'."
 

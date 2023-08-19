@@ -19,8 +19,6 @@ alias fd='fd --hidden'
 alias mkdir='mkdir -p'
 alias cp='cp -i'
 alias mv='mv -i'
-alias cl='clear'
-alias py='python'
 alias dig='doggo'
 
 # Git aliases.
@@ -28,7 +26,6 @@ alias pull='git pull origin'
 alias push='git push origin'
 alias commit='git commit -m'
 alias add='git add'
-alias status='git status'
 
 # Shortcuts.
 alias dev='cd $XDG_DEV_DIR'
@@ -50,9 +47,8 @@ alias fdcatppuccin="rg -i -l '(latte|frapp[eé]|mocha|macchiato)' ~/.config/*"
 # OS X specific aliases.
 alias showfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 alias hidefiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
-alias fuckdstore="fd -H '^\.DS_Store$' -tf -X rm"
+alias byedstore="fd -H '^\.DS_Store$' -tf -X rm"
 alias stfu="osascript -e 'set volume output muted true'"
 alias pumpitup="osascript -e 'set volume output volume 100'"
 alias update="brew update; brew upgrade; brew cleanup --prune=all; softwareupdate -i -a --verbose;"
 alias emptytrash="sudo rm -rfv ~/.Trash"
-alias binup='for f in ~/.bin/*; do chmod +x $f; done'
