@@ -20,6 +20,7 @@ alias mkdir='mkdir -p'
 alias cp='cp -i'
 alias mv='mv -i'
 alias dig='doggo'
+alias dlx='pnpm dlx'
 
 # Git aliases.
 alias pull='git pull origin'
