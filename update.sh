@@ -2,7 +2,7 @@
 # 
 # update.sh - update dotfiles
 
-cmds=(brew fnm npm pip3 git gum sd)
+cmds=(brew fnm pnpm pip3 git gum sd)
 for cmd in ${cmds[@]}; do
     if ! command -v $cmd &> /dev/null; then
         echo "Required command \`$cmd\` not found!"
@@ -22,17 +22,10 @@ spin() {
 }
 
 spin "Updating Brewfile..." -- brew bundle dump --force && success "Updated Brewfile."
-
-node_versions=$(fnm list | grep -Eo 'v[0-9]+\.[0-9]+\.[0-9]+')
-node_current=$(fnm current)
-for v in $node_versions; do
-    fnm use $v &> /dev/null
-    npm list --global --parseable --depth=0 | sed '1d' |awk -F"/node_modules/" '{print $2}' > Npmfile-$v && success "Updated Npmfile-$v."
-done
-fnm use $node_current &> /dev/null
-spin "Updating Fnmfile..." --show-output -- fnm list | grep -Eo '(v[0-9]+\.[0-9]+\.[0-9]+)( [A-Za-z0-9_]+)?' | awk '{print $1, $2}' > Fnmfile && success "Updated Fnmfile."
-spin "Updating requirements.txt..." --show-output -- python -m pip freeze > requirements.txt && success "Updated requirements.txt."
-spin "Updating README.md..." --show-output -- sd "macOS-(\d*\.?\d+)" "macOS-$(sw_vers -productVersion)" README.md
+pnpm -g list | grep -Eo '@?[a-zA-Z0-9/-]+ [0-9]+\.[0-9]+\.[0-9]+' | awk '{print $1 "@" $2}' > Pnpmfile && success "Updated Pnpmfile."
+fnm list | grep -Eo '(v[0-9]+\.[0-9]+\.[0-9]+)( [A-Za-z0-9_]+)?' | awk '{print $1, $2}' > Fnmfile && success "Updated Fnmfile."
+python -m pip freeze > requirements.txt && success "Updated requirements.txt."
+sd "macOS-(\d*\.?\d+)" "macOS-$(sw_vers -productVersion)" README.md
 info "Dotfiles updated."
 echo -en "\033[0;36m? Begin commit process? (Y/n) \033[0m"
 read -r -n 1 response
