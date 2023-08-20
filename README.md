@@ -24,7 +24,7 @@ I like to keep my home directory as clean as possible in accordance with the [XD
 I'm using [GNU Stow](https://www.gnu.org/software/stow/) ([documentation](https://www.gnu.org/software/stow/manual/stow.html)) - a free and lightweight
 dotfiles manager written in Perl. I have tried a few dotfile managers such as [chezmoi](https://www.chezmoi.io/), but all were overcomplicated and just annoying to use. I used this [incredibly helpful guide](https://www.jakewiesler.com/blog/managing-dotfiles) to get started with `stow` and it has been working great so far!
 
-## Getting started
+## Usage
 
 ```sh
 brew install stow
@@ -45,14 +45,12 @@ stow --target=$HOME <package>
 
 ### `bash`
 
-For the configuration of  `bash`, you will need to create a
+To configure `bash`, you will need to create a
 symbolic alias:
 
 ```bash
 ln -s ~/.config/bash/.bashrc ~
 ```
-
-I don't really use `bash` but I keep it around just in case.
 
 ## Other packages
 
