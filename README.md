@@ -5,8 +5,6 @@
 
 My dotfiles configuration for macOS!
 
-> This repository was heavily inspired by [rememberYou/dotfiles](https://github.com/rememberYou/dotfiles) and [ryanccn/dotfiles](https://github.com/ryanccn/dotfiles), many thanks to them!
-
 ## Structure
 
 I like to keep my home directory as clean as possible in accordance with the [XDG base directory specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html):
@@ -61,4 +59,7 @@ Some applications I use are not available on Homebrew, so I install them manuall
 
 ## License
 
-Creative Commons Zero v1.0 Universal
+[Creative Commons Zero v1.0 Universal](LICENSE)
+
+> [!NOTE]
+> This repository was inspired by [rememberYou/dotfiles](https://github.com/rememberYou/dotfiles) and [ryanccn/dotfiles](https://github.com/ryanccn/dotfiles), many thanks to them!
