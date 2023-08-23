@@ -1,0 +1,22 @@
+{
+    "Project Euler": {
+        "prefix": "!projecteuler",
+        "body": [
+            "# ----- Problem ----- #",
+            "#",
+            "",
+            "# ",
+            "",
+            "# ----- Result ----- #",
+            "# Answer: ",
+            "# Time: __ms",
+            "# Tries: ",
+            "",
+            "# ----- Code ----- #",
+            "def main():",
+            "\t$0",
+            "",
+            "# main()"
+        ]
+    }
+}

@@ -1,6 +1,2 @@
-- [ ] Keep track of non-brew fonts (`~/Library/Fonts`)
-- [ ] Save VSCode settings/snippets/custom files (`.vscode/`)
-- [ ] `setup.sh`/`install.sh`
-- [ ] Combine Fnmfile + Npmfile
-- [ ] Track cargo packages?
-- [ ] Track Raycast extensions?
+-   [ ] Keep track of non-brew fonts (`~/Library/Fonts`)
+-   [ ] Track cargo packages?
