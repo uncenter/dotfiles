@@ -1,2 +1,0 @@
--   [ ] Keep track of non-brew fonts (`~/Library/Fonts`)
--   [ ] Track cargo packages?
