@@ -24,5 +24,5 @@ shopt -s histappend
 shopt -s histverify
 
 eval "$(starship init bash)"
-eval "$(atuin init bash)"
 eval "$(fnm env)"
+eval "$(atuin init bash)"

@@ -70,9 +70,7 @@
         ".eleventyignore": "../../icons/eleventy",
         "*.tape": "makefile",
         "justfile": "makefile",
-        "LICENSE-content": "certificate",
-        "build.config.js": "../../icons/unjs",
-        "build.config.ts": "../../icons/unts"
+        "LICENSE-content": "certificate"
     },
     "files.associations": {
         "*.njk": "nunjucks"
@@ -83,7 +81,7 @@
     "explorer.fileNesting.enabled": true,
     "explorer.fileNesting.expand": false,
     "explorer.fileNesting.patterns": {
-        "//": "Last update at 8/23/2023, 6:40:28 PM",
+        "//": "Last update at 8/27/2023, 1:08:20 AM",
         "*.asax": "$(capture).*.cs, $(capture).*.vb",
         "*.ascx": "$(capture).*.cs, $(capture).*.vb",
         "*.ashx": "$(capture).*.cs, $(capture).*.vb",
