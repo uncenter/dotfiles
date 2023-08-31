@@ -3,9 +3,9 @@
 
     // UI
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "Tokyo Night Storm",
-    "workbench.preferredDarkColorTheme": "Tokyo Night Storm",
-    "workbench.preferredLightColorTheme": "Catppuccin Latte",
+    "workbench.colorTheme": "GitHub Dark",
+    "workbench.preferredDarkColorTheme": "GitHub Dark",
+    "workbench.preferredLightColorTheme": "GitHub Light",
     "workbench.fontAliasing": "antialiased",
     "workbench.sideBar.location": "left",
     "workbench.editor.tabCloseButton": "right",
