@@ -37,6 +37,6 @@ done
 git checkout master &> /dev/null || git checkout main &> /dev/null || (echo "Could not switch to main/master branch automatically." && exit 1)
 echo "Switched to branch '$(current_branch)'."
 
-git branch -d "$branch" &> /dev/null && echo "Deleted local branch '$branch'." || echo "Tried '$branch'; does not exist locally." 
+git branch -D "$branch" &> /dev/null && echo "Deleted local branch '$branch'." || echo "Tried '$branch'; does not exist locally." 
 git push "$remote" --delete "$branch" &> /dev/null && echo "Deleted '$remote/$branch'." || echo "Tried '$remote/$branch'; does not exist remotely."
 
