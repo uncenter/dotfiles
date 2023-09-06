@@ -41,6 +41,7 @@ brew "lolcat"
 brew "mas"
 brew "mypy"
 brew "neofetch"
+brew "neovim"
 brew "newsboat"
 brew "nnn"
 brew "openjdk@17"
@@ -97,6 +98,7 @@ mas "Color Picker", id: 1545870783
 mas "Hyperduck", id: 6444667067
 mas "Pure Paste", id: 1611378436
 mas "Shareful", id: 1522267256
+mas "Timetable", id: 425121147
 vscode "antfu.file-nesting"
 vscode "AykutSarac.jsoncrack-vscode"
 vscode "bierner.github-markdown-preview"
