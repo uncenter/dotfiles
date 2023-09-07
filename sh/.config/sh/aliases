@@ -11,7 +11,7 @@ cdf() { cd "`osascript -e 'tell app "Finder" to POSIX path of (insertion locatio
 whatthecommit() { curl --silent --fail https://whatthecommit.com/index.txt; }
 
 alias cat='bat'
-alias ls='exa -F --git --no-icons --no-permissions --no-user -I .git'
+alias ls='eza -F --git --no-icons --no-permissions --no-user -I .git'
 alias ll='ls -la'
 alias lst='ls --tree'
 alias lsd='ls --only-dirs'
