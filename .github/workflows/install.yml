@@ -1,0 +1,11 @@
+name: Install
+
+on:
+  push:
+
+jobs:
+  install:
+    runs-on: macos-latest
+    steps:
+      - name: Install dotfiles
+        run: curl -fsSL https://github.com/uncenter/dotfiles/raw/main/install.sh | sh
