@@ -19,7 +19,8 @@ local plugins = {
       ensure_installed = {
         "prettier",
         "eslint-lsp",
-        "typescript-language-server"
+        "typescript-language-server",
+        "rust-analyzer"
       }
     }
   },

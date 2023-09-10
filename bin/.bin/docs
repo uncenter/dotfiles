@@ -3,7 +3,7 @@
 usage() {
     cat <<EOF
 docs - versatile man alias
-usage: docs [-p|-o] <command>
+usage: docs [-p|-o] <page>
 
 -p          Open in Preview.
 -o          Open in the default browser.
