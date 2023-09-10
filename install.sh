@@ -1,5 +1,8 @@
 #!/usr/bin/env sh
 
+SOURCE="https://github.com/uncenter/dotfiles"
+DOTFILES="$HOME/.dotfiles"
+
 if [ ! $(uname) = "Darwin" ]; then
     echo "This script is for macOS only."
     exit 1
@@ -16,15 +19,21 @@ else
 fi
 brew upgrade
 brew install gum stow
-stowsym() {
-    for dir in */; do
-        if [ ! "$dir" = "$1" ]; then
-            gum spin --title "Stowing $dir..." -- stow --verbose --target="$HOME" "$dir"
-        fi
-    done
-}
-gun spin --title "Stowing dotfiles..." -- stowsym
+
+if ! have "git"; then
+    brew install git
+fi
+
+mkdir -p "$DOTFILES"
+git clone $SOURCE $DOTFILES
+
+echo "Stowing dotfiles..."
+for dir in */$DOTFILES; do
+    gum spin --title "Stowing $DOTFILES/$dir to $HOME/$dir..." -- stow --target="$HOME" "$DOTFILES/$dir"
+done
+
 for f in ~/.bin/*; do chmod +x $f; done
+
 gum spin --title "Installing Homebrew packages..." -- brew bundle install --file=Brewfile
 brew cleanup --prune=all
 
