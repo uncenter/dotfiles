@@ -1,6 +1,4 @@
 #!/usr/bin/env sh
-# 
-# setup.sh - setup dotfiles on a new machine
 
 if [ ! $(uname) = "Darwin" ]; then
     echo "This script is for macOS only."
@@ -31,7 +29,7 @@ gum spin --title "Installing Homebrew packages..." -- brew bundle install --file
 brew cleanup --prune=all
 
 fnmfile() {
-    cat Fnmfile | while read -r line; do
+    cat 'Fnmfile' | while read -r line; do
         version=$(echo $line | awk '{print $1}')
         alias=$(echo $line | awk '{print $2}')
         if [ -z $alias ]; then
@@ -44,14 +42,10 @@ fnmfile() {
     done
 }
 gum spin --title "Installing and aliasing Node.js versions..." -- fnmfile
-npmfile() {
-    find . -name "Npmfile-*" | while read -r file; doå
-        version=$(echo $file | grep -Eo '[0-9]+\.[0-9]+\.[0-9]+')
-        fnm use $version
-        cat $file | while read -r line; do
-            npm install --global $line@latest
-        done
+pnpmfile() {
+    cat 'Pnpmfile' | while read -r line; do
+        pnpm install --global $line
     done
 }
-gum spin --title "Installing global npm packages..." -- npmfile
+gum spin --title "Installing global npm packages..." -- pnpmfile
 gum spin --title "Installing global Python packages..." -- pip3 install --user -r requirements.txt
