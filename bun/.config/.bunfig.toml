@@ -1,0 +1,7 @@
+[install]
+
+globalDir = "~/.local/share/bun/global"
+globalBinDir = "~/.local/share/bun/"
+
+[install.cache]
+dir = "~/.local/share/bun/cache"

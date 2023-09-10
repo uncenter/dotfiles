@@ -44,6 +44,7 @@ alias randnum='python3 -c "import sys, string, random; print(\"\".join([random.c
 alias randchar='python3 -c "import sys, string, random; print(\"\".join([random.choice(string.printable) for _ in range(int(sys.argv[1] if len(sys.argv) > 1 else 1))]))"'
 alias serve='npx @11ty/eleventy-dev-server'
 alias fdcatppuccin="rg -i -l '(latte|frapp[eé]|mocha|macchiato)' ~/.config/*"
+alias nocache='npm cache clean --force; pnpm store prune; yarn cache clean'
 
 # OS X specific aliases.
 alias showfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
