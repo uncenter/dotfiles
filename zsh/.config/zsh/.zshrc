@@ -48,10 +48,14 @@ antidote load "${ZDOTDIR:-$HOME}/.zsh_plugins.txt"
 
 # Newline fix.
 precmd() {
-  precmd() {
-    echo
-  }
+    if [ -z "$NEW_LINE_BEFORE_PROMPT" ]; then
+        NEW_LINE_BEFORE_PROMPT=1
+    elif [ "$NEW_LINE_BEFORE_PROMPT" -eq 1 ]; then
+        echo
+    fi
 }
+alias clear="unset NEW_LINE_BEFORE_PROMPT && clear"
+alias reset="unset NEW_LINE_BEFORE_PROMPT && reset"
 
 eval "$(starship init zsh)"
 eval "$(fnm env)"

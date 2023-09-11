@@ -20,7 +20,8 @@ local plugins = {
         "prettier",
         "eslint-lsp",
         "typescript-language-server",
-        "rust-analyzer"
+        "rust-analyzer",
+        "pyright",
       }
     }
   },
@@ -30,6 +31,13 @@ local plugins = {
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
     end,
+  },
+  {
+    "rust-lang/rust.vim",
+    ft = "rust",
+    init = function ()
+      vim.g.rustfmt_autosave = 1
+    end
   },
 }
 return plugins
