@@ -54,8 +54,9 @@ ln -s ~/.config/bash/.bashrc ~
 
 Some applications I use are not available on Homebrew, so I install them manually:
 
--   [uncenter/wifi-password](https://github.com/uncenter/wifi-password) - a simple script to get the password of the WiFi you're currently connected to.
--   [uncenter/fn](https://github.com/uncenter/fn) - a CLI wrapper to simplify managing Newsboat.
+- [uncenter/wifi-password](https://github.com/uncenter/wifi-password) - a simple script to get the password of the WiFi you're currently connected to.
+- [uncenter/fn](https://github.com/uncenter/fn) - a CLI wrapper to simplify managing Newsboat.
+- [ryanccn/choirpack](https://github.com/ryanccn/choirpack) - Corepack wrapper.
 
 ## License
 
