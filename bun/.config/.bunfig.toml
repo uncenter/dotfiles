@@ -1,7 +1,7 @@
 [install]
 
-globalDir = "~/.local/share/bun/global"
-globalBinDir = "~/.local/share/bun/"
+globalDir = "~/.cache/bun/global"
+globalBinDir = "~/.cache/bun/bin"
 
 [install.cache]
-dir = "~/.local/share/bun/cache"
+dir = "~/.cache/bun/cache"
