@@ -13,9 +13,9 @@
 	"window.nativeTabs": false,
 
 	// Editor
-	"editor.fontFamily": "'RyanMono Nerd Font'",
+	"editor.fontFamily": "'0xProto'",
 	"editor.fontWeight": "normal",
-	"editor.fontLigatures": true,
+	"editor.fontLigatures": false,
 	"editor.fontSize": 14,
 	"editor.accessibilitySupport": "off",
 	"editor.inlineSuggest.enabled": true,
@@ -65,6 +65,7 @@
 		"eleventy.config.js": "../../icons/eleventy",
 		"eleventy.config.cjs": "../../icons/eleventy",
 		".eleventyignore": "../../icons/eleventy",
+		"*.vto": "../../icons/vento",
 		"*.tape": "makefile",
 		"justfile": "makefile",
 		"LICENSE-content": "certificate"
@@ -78,7 +79,7 @@
 	"explorer.fileNesting.enabled": true,
 	"explorer.fileNesting.expand": false,
 	"explorer.fileNesting.patterns": {
-		"//": "Last update at 9/12/2023, 6:47:18 PM",
+		"//": "Last update at 9/15/2023, 7:08:06 PM",
 		"*.asax": "$(capture).*.cs, $(capture).*.vb",
 		"*.ascx": "$(capture).*.cs, $(capture).*.vb",
 		"*.ashx": "$(capture).*.cs, $(capture).*.vb",
@@ -172,5 +173,6 @@
 	"vscord.status.problems.enabled": false,
 	"vscord.behaviour.suppressNotifications": true,
 	"autoDocstring.startOnNewLine": true,
-	"svg.preview.boundingBox": true
+	"svg.preview.boundingBox": true,
+	"svg.preview.transparencyGrid": false
 }
