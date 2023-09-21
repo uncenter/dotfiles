@@ -11,6 +11,7 @@
 	"workbench.editor.tabCloseButton": "right",
 	"workbench.startupEditor": "none",
 	"window.nativeTabs": false,
+	"window.autoDetectColorScheme": true,
 
 	// Editor
 	"editor.fontFamily": "'0xProto'",
@@ -21,6 +22,7 @@
 	"editor.inlineSuggest.enabled": true,
 	"editor.detectIndentation": false,
 	"workbench.editor.closeOnFileDelete": true,
+	"terminal.integrated.defaultProfile.osx": "zsh",
 
 	// Terminal
 	"terminal.integrated.fontFamily": "'RyanTerm Nerd Font'",
@@ -32,12 +34,15 @@
 	"editor.formatOnSave": true,
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.tabSize": 4,
+	// Prettier
 	"prettier.useTabs": true,
-	"yaml.format.enable": true,
+	// Black
 	"[python]": {
 		"editor.formatOnType": true,
 		"editor.defaultFormatter": "ms-python.black-formatter"
 	},
+	// YAML by Red Hat
+	"yaml.format.enable": true,
 	"[yaml]": {
 		"editor.tabSize": 2
 	},
@@ -79,7 +84,7 @@
 	"explorer.fileNesting.enabled": true,
 	"explorer.fileNesting.expand": false,
 	"explorer.fileNesting.patterns": {
-		"//": "Last update at 9/15/2023, 7:08:06 PM",
+		"//": "Last update at 9/18/2023, 8:24:30 PM",
 		"*.asax": "$(capture).*.cs, $(capture).*.vb",
 		"*.ascx": "$(capture).*.cs, $(capture).*.vb",
 		"*.ashx": "$(capture).*.cs, $(capture).*.vb",
@@ -164,7 +169,6 @@
 	"python.analysis.inlayHints.callArgumentNames": true,
 	"python.analysis.inlayHints.functionReturnTypes": true,
 	"redhat.telemetry.enabled": false,
-	"terminal.integrated.defaultProfile.osx": "zsh",
 	"tailwindCSS.emmetCompletions": true,
 	"extensions.autoUpdate": "onlyEnabledExtensions",
 	"extensions.ignoreRecommendations": true,
@@ -174,5 +178,6 @@
 	"vscord.behaviour.suppressNotifications": true,
 	"autoDocstring.startOnNewLine": true,
 	"svg.preview.boundingBox": true,
-	"svg.preview.transparencyGrid": false
+	"svg.preview.transparencyGrid": false,
+	"githubPullRequests.createOnPublishBranch": "never"
 }

@@ -39,3 +39,5 @@
 	old = red bold
 	new = green bold
 	whitespace = red reverse
+[alias]
+	undo = reset --soft HEAD~1
