@@ -33,6 +33,7 @@ alias dev='cd $XDG_DEV_DIR'
 alias uppercase='tr "[:lower:]" "[:upper:]"'
 alias lowercase='tr "[:upper:]" "[:lower:]"'
 alias reload='source ${ZDOTDIR:-$HOME}/.zshrc'
+alias puil='pnpm up --interactive --latest'
 
 # Other.
 alias urldecode='python3 -c "import sys, urllib.parse as ul; \
