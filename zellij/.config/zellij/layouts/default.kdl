@@ -1,8 +1,5 @@
 layout {
-	tab name="main" cwd="~/Dev" {
-		pane split_direction="horizontal" {
-			pane size="60%"
-			pane size="40%"
-		}
+	tab cwd="~/Dev" {
+		pane 
 	}
 }
