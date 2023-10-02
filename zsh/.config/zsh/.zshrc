@@ -76,6 +76,7 @@ alias reset="unset NEW_LINE_BEFORE_PROMPT && reset"
 eval "$(starship init zsh)"
 eval "$(fnm env)"
 eval "$(atuin init zsh)"
+eval "$(zellij setup --generate-auto-start zsh)"
 
 [ -f "$HOME/.iterm2_shell_integration.zsh" ] && source "$HOME/.iterm2_shell_integration.zsh"
 [ -f "$HOME/.config/tabtab/zsh/__tabtab.zsh" ] && source "$HOME/.config/tabtab/zsh/__tabtab.zsh"

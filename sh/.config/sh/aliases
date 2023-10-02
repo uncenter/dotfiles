@@ -20,16 +20,8 @@ alias mkdir='mkdir -p'
 alias cp='cp -i'
 alias mv='mv -i'
 alias dig='doggo'
-alias dlx='pnpm dlx'
-
-# Git aliases.
-alias pull='git pull origin'
-alias push='git push origin'
-alias commit='git commit -m'
-alias add='git add'
 
 # Shortcuts.
-alias dev='cd $XDG_DEV_DIR'
 alias uppercase='tr "[:lower:]" "[:upper:]"'
 alias lowercase='tr "[:upper:]" "[:lower:]"'
 alias reload='source ${ZDOTDIR:-$HOME}/.zshrc'
@@ -43,15 +35,12 @@ alias urlencode='python3 -c "import sys, urllib.parse as ul; \
 alias randletter='python3 -c "import sys, string, random; print(\"\".join([random.choice(string.ascii_letters) for _ in range(int(sys.argv[1] if len(sys.argv) > 1 else 1))]))"'
 alias randnum='python3 -c "import sys, string, random; print(\"\".join([random.choice(string.digits) for _ in range(int(sys.argv[1] if len(sys.argv) > 1 else 1))]))"'
 alias randchar='python3 -c "import sys, string, random; print(\"\".join([random.choice(string.printable) for _ in range(int(sys.argv[1] if len(sys.argv) > 1 else 1))]))"'
-alias serve='npx @11ty/eleventy-dev-server'
 alias fdcatppuccin="rg -i -l '(latte|frapp[eé]|mocha|macchiato)' ~/.config/*"
 alias nocache='npm cache clean --force; pnpm store prune; yarn cache clean'
 
 # OS X specific aliases.
 alias showfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 alias hidefiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
-alias byedstore="fd -H '^\.DS_Store$' -tf -X rm"
 alias stfu="osascript -e 'set volume output muted true'"
 alias pumpitup="osascript -e 'set volume output volume 100'"
 alias update="brew update; brew upgrade; brew cleanup --prune=all; softwareupdate -i -a --verbose;"
-alias emptytrash="sudo rm -rfv ~/.Trash"
