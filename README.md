@@ -39,17 +39,6 @@ cd .dotfiles
 stow --target=$HOME <package>
 ```
 
-## Caveats
-
-### `bash`
-
-To configure `bash`, you will need to create a
-symbolic alias:
-
-```bash
-ln -s ~/.config/bash/.bashrc ~
-```
-
 ## Other packages
 
 Some applications I use are not available on Homebrew, so I install them manually:
