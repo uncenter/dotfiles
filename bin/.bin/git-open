@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+repo_url=$(git config --get remote.origin.url)
+
+if [ -z "$repo_url" ]; then
+  echo "error: unable to determine the remote repository URL"
+  exit 1
+fi
+
+case "$(uname -s)" in
+  Linux*)  xdg-open "$repo_url" ;;
+  Darwin*) open "$repo_url" ;;
+  CYGWIN*) start "$repo_url" ;;
+  *)       echo "error: unsupported operating system" ;;
+esac
+
