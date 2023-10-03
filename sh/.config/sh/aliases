@@ -21,6 +21,7 @@ alias mkdir='mkdir -p'
 alias cp='cp -i'
 alias mv='mv -i'
 alias dig='doggo'
+alias gitui='gitui -t macchiato.ron'
 
 # Shortcuts.
 alias uppercase='tr "[:lower:]" "[:upper:]"'
