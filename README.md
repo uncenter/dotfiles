@@ -20,8 +20,7 @@ I like to keep my home directory as clean as possible in accordance with the [XD
 ## Dotfiles manager
 
 I'm using [GNU Stow](https://www.gnu.org/software/stow/) ([documentation](https://www.gnu.org/software/stow/manual/stow.html)) - a free and lightweight
-dotfiles manager written in Perl. I have tried a few dotfile managers such as [chezmoi](https://www.chezmoi.io/), but all were overcomplicated and just annoying to use. I used this [incredibly helpful guide](https://www.jakewiesler.com/blog/managing-dotfiles) to get started with `stow` and it has been working great so far!
-
+dotfiles manager written in Perl. I used this [incredibly helpful guide](https://www.jakewiesler.com/blog/managing-dotfiles) to get started with `stow`, definitely read it if you are unfamiliar with the program.
 ## Usage
 
 ```sh
