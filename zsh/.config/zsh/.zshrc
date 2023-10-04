@@ -73,32 +73,15 @@ precmd() {
 alias clear="unset NEW_LINE_BEFORE_PROMPT && clear"
 alias reset="unset NEW_LINE_BEFORE_PROMPT && reset"
 
-# Zellij auto-tab-rename (https://www.reddit.com/r/zellij/comments/10skez0/comment/jrimomm/).
-zellij_tab_name_update() {
-  if [[ -n $ZELLIJ ]]; then
-    tab_name=''
-    if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
-        tab_name+=$(basename "$(git rev-parse --show-toplevel)")/
-        tab_name+=$(git rev-parse --show-prefix)
-        tab_name=${tab_name%/}
-    else
-        tab_name=$PWD
-            if [[ $tab_name == $HOME ]]; then
-         	tab_name="~"
-             else
-         	tab_name=${tab_name##*/}
-             fi
-    fi
-    command nohup zellij action rename-tab $tab_name >/dev/null 2>&1
-  fi
+function update_window_title_for_cwd(){
+    local title=$(print -P "%$WINDOW_TITLE_CWD_DEPTH~")
+    echo -ne "\033]0;$title\007"
 }
-zellij_tab_name_update
-chpwd_functions+=(zellij_tab_name_update)
+precmd_functions+=(update_window_title_for_cwd)
 
 eval "$(starship init zsh)"
 eval "$(fnm env)"
 eval "$(atuin init zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
 
 integrations=(
     "$HOME/.config/broot/launcher/bash/br"
