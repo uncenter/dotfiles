@@ -46,4 +46,4 @@ export TEALDEER_CACHE_DIR="$XDG_CACHE_HOME/tealdeer"
 
 export GOPATH="${GOPATH:-$XDG_DATA_HOME/go}"
 
-export ZELLIJ_CONFIG_DIR="$XDG_CONFIG_HOME/zellij"
+export STACK_XDG=1
