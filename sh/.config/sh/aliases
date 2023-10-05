@@ -23,6 +23,19 @@ alias mv='mv -i'
 alias dig='doggo'
 alias gitui='gitui -t macchiato.ron'
 
+# Git.
+alias gp='git push origin'
+alias gpm='git push origin main'
+alias gl='git pull origin'
+alias glm='git pull origin main'
+alias gc='git commit -m'
+alias glog='git log'
+alias glogshort='git log --oneline'
+alias gnew='git checkout -b'
+alias gs='git checkout'
+alias ga='git add'
+alias gaa='git add .'
+
 # Shortcuts.
 alias uppercase='tr "[:lower:]" "[:upper:]"'
 alias lowercase='tr "[:upper:]" "[:lower:]"'
