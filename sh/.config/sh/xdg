@@ -47,3 +47,5 @@ export TEALDEER_CACHE_DIR="$XDG_CACHE_HOME/tealdeer"
 export GOPATH="${GOPATH:-$XDG_DATA_HOME/go}"
 
 export STACK_XDG=1
+
+export WAKATIME_HOME="$XDG_CONFIG_HOME/wakatime"
