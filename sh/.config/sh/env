@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-# 
+#
 # ~/.config/sh/env - sh/bash/zsh environment variables.
 
 # Load XDG specifications.
@@ -9,7 +9,7 @@ export GPG_TTY=$(tty)
 # gpgconf --launch gpg-agent
 
 export LANG=en_US.UTF-8
-export EDITOR="hx"
+export EDITOR="nvim"
 export VISUAL="code"
 export LESS="-R"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
