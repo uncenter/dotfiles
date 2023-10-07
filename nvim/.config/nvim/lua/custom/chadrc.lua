@@ -3,7 +3,7 @@ local M = {}
 
 M.ui = {
   statusline = {
-    theme = "minimal",
+    theme = "vscode_colored",
   },
 }
 M.plugins = "custom.plugins"

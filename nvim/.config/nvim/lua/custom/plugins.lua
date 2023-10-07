@@ -1,5 +1,7 @@
 local plugins = {
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  { "wakatime/vim-wakatime", event = "VeryLazy" },
+  { 'LunarVim/bigfile.nvim' },
   {
     "mhartington/formatter.nvim",
     event = "VeryLazy",
