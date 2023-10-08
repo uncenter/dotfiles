@@ -47,8 +47,8 @@ vimcmd_symbol = "[](green)"
 
 [shell]
 bash_indicator = '<bash>'
-fish_indicator = '<fish>'
-zsh_indicator = ''
+fish_indicator = ''
+zsh_indicator = '<zsh>'
 disabled = false
 style = "red"
 format = '[$indicator]($style)'
@@ -204,3 +204,4 @@ surface0 = "#313244"
 base = "#1e1e2e"
 mantle = "#181825"
 crust = "#11111b"
+
