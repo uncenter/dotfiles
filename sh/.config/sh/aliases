@@ -9,13 +9,13 @@ take() { mkdir -p "$1" && cd "$1" || return 1; } # Create a directory and change
 alias mkcd=take
 cdf() { cd "`osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)'`"; } # Change to the frontmost Finder window directory.
 whatthecommit() { curl --silent --fail https://whatthecommit.com/index.txt; }
+mk() { mkdir -p "$(dirname "$1")" && touch "$1" }
 
 alias cat='bat'
-alias ls='eza -F --git --no-icons --no-permissions --no-user -I .git'
+alias ls='eza -F --icons --no-permissions --no-user -I .git'
 alias ll='ls -la'
 alias lst='ls --tree'
 alias lsd='ls --only-dirs'
-alias br='br --hidden'
 alias fd='fd --hidden'
 alias mkdir='mkdir -p'
 alias cp='cp -i'
