@@ -1,0 +1,5 @@
+[manager]
+show_hidden = true
+
+[preview]
+tab_size = 4

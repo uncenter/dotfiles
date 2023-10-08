@@ -4,15 +4,9 @@ then
     FPATH="$(brew --prefix)/share/zsh/site-functions:$FPATH"
 fi
 
-# Case-insensitive (uppercase from lowercase) completion:
-# zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-
-# Case-insensitive (all) completion:
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':zsh-utils:plugins:completion' use-xdg-basedirs 'yes'
 
 # https://zsh.sourceforge.io/Doc/Release/Options.html
-setopt auto_cd
 setopt always_to_end
 unsetopt menu_complete
 setopt auto_menu
@@ -43,9 +37,12 @@ export ANTIDOTE_HOME="${HOME}/.cache/antidote"
 source "$(brew --prefix antidote)/share/antidote/antidote.zsh"
 antidote load "${ZDOTDIR:-$HOME}/.zsh_plugins.txt"
 
+# Adds files and folders beginning with `.` to tab completion (https://unix.stackexchange.com/a/308322).
+_comp_options+=(globdots)
+
 # Aliases
 [ -f "${XDG_CONFIG_HOME}/sh/aliases" ] && source "${XDG_CONFIG_HOME}/sh/aliases"
-up(){                                 # Go up X directories (default 1)
+function up(){                                 # Go up X directories (default 1)
   if [[ "$#" -ne 1 ]]; then
     cd ..
   elif ! [[ $1 =~ '^[0-9]+$' ]]; then
@@ -61,9 +58,17 @@ up(){                                 # Go up X directories (default 1)
     cd $d
   fi
 }
+function ya() {
+    tmp="$(mktemp -t "yazi-cwd.XXXXX")"
+    yazi --cwd-file="$tmp"
+    if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+        cd -- "$cwd"
+    fi
+    rm -f -- "$tmp"
+}
 
 # Newline fix.
-precmd() {
+function precmd() {
     if [ -z "$NEW_LINE_BEFORE_PROMPT" ]; then
         NEW_LINE_BEFORE_PROMPT=1
     elif [ "$NEW_LINE_BEFORE_PROMPT" -eq 1 ]; then
@@ -73,19 +78,11 @@ precmd() {
 alias clear="unset NEW_LINE_BEFORE_PROMPT && clear"
 alias reset="unset NEW_LINE_BEFORE_PROMPT && reset"
 
-function update_window_title_for_cwd(){
-    local title=$(print -P "%$WINDOW_TITLE_CWD_DEPTH~")
-    echo -ne "\033]0;$title\007"
-}
-precmd_functions+=(update_window_title_for_cwd)
-
 eval "$(starship init zsh)"
 eval "$(fnm env)"
 eval "$(atuin init zsh)"
 
 integrations=(
-    "$HOME/.config/broot/launcher/bash/br"
-    "$HOME/.iterm2_shell_integration.zsh"
     "$HOME/.config/tabtab/zsh/__tabtab.zsh"
 )
 for file in "${integrations[@]}"; do
