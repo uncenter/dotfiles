@@ -161,3 +161,5 @@ end
 starship init fish | source
 fnm env | source
 atuin init fish | source
+source ~/.config/tabtab/fish/__tabtab.fish
+
