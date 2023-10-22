@@ -40,7 +40,7 @@ brew "go"
 brew "gping"
 brew "gum"
 brew "haskell-stack"
-brew "helix"
+brew "helix", args: ["HEAD"]
 brew "himalaya"
 brew "hyperfine"
 brew "isort"
