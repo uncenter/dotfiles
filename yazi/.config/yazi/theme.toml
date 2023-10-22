@@ -1,2 +1,2 @@
-[preview]
-hovered = { fg = "#1E2031", bg = "#B1CDFC" }
+[manager]
+preview_hovered = { fg = "#1E2031", bg = "#B1CDFC" }
