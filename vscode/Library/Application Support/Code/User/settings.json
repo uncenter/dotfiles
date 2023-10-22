@@ -3,8 +3,8 @@
 
 	// UI
 	"workbench.iconTheme": "material-icon-theme",
-	"workbench.colorTheme": "Catppuccin Macchiato",
-	"workbench.preferredDarkColorTheme": "Catppuccin Macchiato",
+	"workbench.colorTheme": "Catppuccin Frappé",
+	"workbench.preferredDarkColorTheme": "Catppuccin Frappé",
 	"workbench.preferredLightColorTheme": "Catppuccin Latte",
 	"workbench.fontAliasing": "antialiased",
 	"workbench.sideBar.location": "left",
@@ -85,7 +85,7 @@
 	"explorer.fileNesting.enabled": true,
 	"explorer.fileNesting.expand": false,
 	"explorer.fileNesting.patterns": {
-		"//": "Last update at 10/16/2023, 11:39:54 AM",
+		"//": "Last update at 10/19/2023, 11:45:14 AM",
 		"*.asax": "$(capture).*.cs, $(capture).*.vb",
 		"*.ascx": "$(capture).*.cs, $(capture).*.vb",
 		"*.ashx": "$(capture).*.cs, $(capture).*.vb",

@@ -1,4 +1,4 @@
-theme = "catppuccin_macchiato"
+theme = "catppuccin_frappe"
 
 [editor]
 auto-pairs = true
@@ -23,3 +23,9 @@ select = "underline"
 
 [editor.indent-guides]
 render = true
+
+[editor.lsp]
+display-messages = true
+
+[editor.file-picker]
+hidden = false

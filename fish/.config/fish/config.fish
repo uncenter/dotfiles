@@ -77,7 +77,7 @@ alias mkdir='mkdir -p'
 alias cp='cp -i'
 alias mv='mv -i'
 alias dig='doggo'
-alias gitui='gitui -t macchiato.ron'
+alias gitui='gitui -t frappe.ron'
 
 # Git
 abbr -a gp git push origin
