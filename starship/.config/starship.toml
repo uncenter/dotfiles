@@ -7,7 +7,6 @@ right_format = '$cmd_duration'
 format = """
 $username\
 $hostname\
-$localip\
 $directory\
 $git_branch\
 $git_commit\
@@ -26,13 +25,10 @@ $nodejs\
 $php\
 $python\
 $rust\
-$env_var\
-$custom\
 $sudo\
 $fill\
 $shell\
 $line_break\
-$battery\
 $status\
 $os\
 $character"""
@@ -46,10 +42,10 @@ error_symbol = "[](red)"
 vimcmd_symbol = "[](green)"
 
 [shell]
-bash_indicator = '<bash>'
-fish_indicator = ''
-zsh_indicator = '<zsh>'
 disabled = false
+fish_indicator = ''
+bash_indicator = '<bash>'
+zsh_indicator = '<zsh>'
 style = "red"
 format = '[$indicator]($style)'
 
@@ -69,11 +65,23 @@ symbol = ""
 style = "mauve"
 format = '[on $symbol $branch]($style) '
 
+[git_status]
+conflicted='' 
+ahead='>'
+behind='<'
+diverged='#'
+untracked='?'
+stashed='≡'
+modified='!'
+staged='+'
+renamed='%'
+deleted='X'
+
 [package]
-format = '[is $symbol $version]($style) '
 symbol = ""
-version_format = 'v${raw}'
 style = "peach"
+format = '[is $symbol $version]($style) '
+version_format = 'v${raw}'
 display_private = true
 
 [nodejs]
@@ -81,7 +89,7 @@ symbol = ""
 style = "green"
 not_capable_style = "red"
 format = '[via $symbol $version]($style) '
-version_format = "v${major}"
+version_format = "v${raw}"
 
 [golang]
 symbol = "󰟓"
@@ -91,7 +99,10 @@ format = '[via $symbol $version]($style) '
 version_format = "v${raw}"
 
 [python]
-disabled = true
+symbol = "󱔎"
+style = "yellow"
+format = '[via $symbol $version]($style)'
+version_format = "v${raw}"
 
 [palettes.catppuccin_latte]
 rosewater = "#dc8a78"
