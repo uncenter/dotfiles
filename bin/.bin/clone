@@ -14,8 +14,8 @@ elif [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
     usage
     echo
     cat <<EOF
-$ clone zsh-users/zsh-autosuggestions
-$ clone https://github.com/zsh-users/zsh-autosuggestions
+$ clone uncenter/dotfiles
+$ clone https://github.com/uncenter/dotfiles
 EOF
     exit 0
 fi
