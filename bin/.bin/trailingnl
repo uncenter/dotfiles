@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+
+usage() {
+    cat <<EOF
+trailingnl - recursively check a directory for files with missing trailing newlines
+usage: trailingnl [-h | --help | --fix] <directory>
+EOF
+}
+
+fix=false
+
+while [[ "$1" == -* ]]; do
+    case "$1" in
+        -h | --help)
+            usage
+            exit 0
+            ;;
+        --fix)
+            fix=true
+            ;;
+        *)
+            echo "error: unknown option: $1"
+            usage
+            exit 1
+            ;;
+    esac
+    shift
+done
+
+if [ -z "$1" ]; then
+    usage
+    exit 0
+fi
+
+directory="$1"
+
+if [ ! -d "$directory" ]; then
+    echo "error: '$directory' is not a directory"
+    usage
+    exit 1
+fi
+
+is_ignored() {
+    git check-ignore "$1" &> /dev/null
+}
+
+find "$directory" -type d \( -name node_modules -o -name .git \) -prune -o -type f -print | while read -r file; do
+    if is_ignored "$file"; then
+        continue
+    fi
+
+    if [ $(tail -c 1 "$file" | wc -l) -ne 1 ] && [ -s "$file" ]; then
+        echo "$file"
+        
+        if [ "$fix" = true ]; then
+            echo >> "$file"
+        fi
+    fi
+done
+
