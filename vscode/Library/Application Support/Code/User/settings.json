@@ -14,7 +14,7 @@
 	"window.autoDetectColorScheme": true,
 
 	// Editor
-	"editor.fontFamily": "CommitMono",
+	"editor.fontFamily": "CommitMono Nerd Font",
 	"editor.fontLigatures": true,
 	"editor.fontWeight": "normal",
 	"editor.fontSize": 14,
@@ -23,9 +23,6 @@
 	"editor.detectIndentation": false,
 	"workbench.editor.closeOnFileDelete": true,
 	"terminal.integrated.defaultProfile.osx": "fish",
-
-	// Terminal
-	"terminal.integrated.fontFamily": "CommitMono",
 	"terminal.integrated.fontSize": 14,
 	"terminal.integrated.lineHeight": 1.3,
 	"terminal.integrated.cursorBlinking": true,
@@ -85,7 +82,7 @@
 	"explorer.fileNesting.enabled": true,
 	"explorer.fileNesting.expand": false,
 	"explorer.fileNesting.patterns": {
-		"//": "Last update at 10/22/2023, 11:15:32 PM",
+		"//": "Last update at 10/27/2023, 8:22:54 AM",
 		"*.asax": "$(capture).*.cs, $(capture).*.vb",
 		"*.ascx": "$(capture).*.cs, $(capture).*.vb",
 		"*.ashx": "$(capture).*.cs, $(capture).*.vb",
@@ -103,6 +100,7 @@
 		"*.cxx": "$(capture).hpp, $(capture).h, $(capture).hxx",
 		"*.dart": "$(capture).freezed.dart, $(capture).g.dart",
 		"*.ex": "$(capture).html.eex, $(capture).html.heex, $(capture).html.leex",
+		"*.fs": "$(capture).fs.js, $(capture).fs.jsx, $(capture).fs.ts, $(capture).fs.tsx, $(capture).fs.rs, $(capture).fs.php, $(capture).fs.dart",
 		"*.go": "$(capture)_test.go",
 		"*.java": "$(capture).class",
 		"*.js": "$(capture).js.map, $(capture).*.js, $(capture)_*.js",
