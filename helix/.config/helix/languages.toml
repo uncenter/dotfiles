@@ -47,3 +47,8 @@ args = ["--ignore", "E501"]
 [[language]]
 name = "toml"
 formatter = { command = "taplo", args = ["fmt", "-"] }
+
+[[language]]
+name = "fortran"
+formatter = { command = "fprettify" , args = ["--stdout"] }
+auto-format = true
