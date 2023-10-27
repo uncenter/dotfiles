@@ -2,8 +2,8 @@
 
 usage() {
     cat <<EOF
-trailingnl - recursively check a directory for files with missing trailing newlines
-usage: trailingnl [-h | --help | --fix] <directory>
+tnl - recursively check a directory for files with missing trailing newlines
+usage: tnl [-h | --help] [--fix] <directory>
 EOF
 }
 
@@ -19,7 +19,7 @@ while [[ "$1" == -* ]]; do
             fix=true
             ;;
         *)
-            echo "error: unknown option: $1"
+            echo "tnl: error: unknown option '$1'"
             usage
             exit 1
             ;;
@@ -35,7 +35,7 @@ fi
 directory="$1"
 
 if [ ! -d "$directory" ]; then
-    echo "error: '$directory' is not a directory"
+    echo "tnl: error: '$directory' is not a directory"
     usage
     exit 1
 fi

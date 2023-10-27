@@ -36,7 +36,7 @@ if [[ $1 == http://* || $1 == https://* ]]; then
     git clone "$@"
 else
     if ! command -v gh &> /dev/null; then
-        echo "Required command \`gh\` not installed."
+        echo "clone: error: required command \`gh\` not installed"
         exit 1
     fi
     gh repo clone "$@"

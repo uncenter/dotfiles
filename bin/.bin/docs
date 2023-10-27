@@ -3,10 +3,7 @@
 usage() {
     cat <<EOF
 docs - versatile man alias
-usage: docs [-p|-o] <page>
-
--p          Open in Preview.
--o          Open in the default browser.
+usage: docs [-p | --preview] [-o | --open] <page>
 EOF
 }
 
@@ -17,7 +14,7 @@ fi
 
 check_exists() {
     if ! man -w "$1" &> /dev/null; then
-        echo "Manual page for '$1' does not exist."
+        echo "docs: error: manual page for '$1' does not exist"
         exit 1
     fi
 }
@@ -25,19 +22,19 @@ x="$1"
 shift
 
 case "$x" in
-    -p)
+    -p|--preview)
         for page in "$@"; do
             check_exists "$page"
             echo "Opening page for '$page' in Preview..."
             mandoc -Tpdf "$(man -w $page)" | open -f -a Preview
         done
         ;;
-    -o)
+    -o|--open)
         for page in "$@"; do
             check_exists "$page"
             url="https://ss64.com/osx/$page.html"
             if [ "$(curl -I -o /dev/null -s -w "%{http_code}" "$url")" -eq 404 ]; then
-                echo "The page for '$page' returned a 404 status code."
+                echo "docs: error: the page for '$page' returned a 404 status code"
                 exit 1
             fi
             echo "Opening page for '$page' in the default browser..."

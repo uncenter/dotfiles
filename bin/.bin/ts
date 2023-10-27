@@ -8,13 +8,13 @@ EOF
 }
 
 if ! command -v gdate &> /dev/null; then
-    echo "Required command \`gdate\` is not installed."
+    echo "ts: error: required command \`gdate\` not installed"
     exit 1
 fi
 
 if [ -z "$1" ] || [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
     usage
-    exit 1
+    exit 0
 fi
 
 echo $(gdate -d @"$1" "+%B %d, %Y %T")
