@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+usage() {
+    cat <<EOF
+del - delete files by moving them to trash
+usage: del <files>...
+EOF
+}
+
+if [ -z "$1" ]; then
+    usage
+    exit 0
+fi
+
+files=()
+for file in "$@"; do
+  files+=("$(realpath "$file")")
+done
+formatted=$(printf "\",POSIX file \"%s" "${files[@]}")\"
+osascript -ss -e"tell app \"Finder\" to delete {${formatted:2}}" 1>/dev/null
+
