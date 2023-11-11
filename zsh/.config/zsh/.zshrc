@@ -42,22 +42,7 @@ _comp_options+=(globdots)
 
 # Aliases
 [ -f "${XDG_CONFIG_HOME}/sh/aliases" ] && source "${XDG_CONFIG_HOME}/sh/aliases"
-function up(){                                 # Go up X directories (default 1)
-  if [[ "$#" -ne 1 ]]; then
-    cd ..
-  elif ! [[ $1 =~ '^[0-9]+$' ]]; then
-    echo "error: argument should be a number (default=1)"
-  else
-    local d=""
-    limit=$1
-    for ((i=1 ; i <= limit ; i++))
-      do
-        d=$d/..
-      done
-    d=$(echo $d | sed 's/^\///')
-    cd $d
-  fi
-}
+
 function ya() {
     tmp="$(mktemp -t "yazi-cwd.XXXXX")"
     yazi --cwd-file="$tmp"
