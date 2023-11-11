@@ -1,19 +1,21 @@
 {
 	"workbench.settings.editor": "json",
 
-	// UI
+	/* UI */
 	"workbench.iconTheme": "material-icon-theme",
 	"workbench.colorTheme": "Catppuccin Frappé",
 	"workbench.preferredDarkColorTheme": "Catppuccin Frappé",
 	"workbench.preferredLightColorTheme": "Catppuccin Latte",
 	"workbench.fontAliasing": "antialiased",
 	"workbench.sideBar.location": "left",
+	"workbench.editor.showTabs": "single",
+	"workbench.activityBar.location": "top",
 	"workbench.editor.tabCloseButton": "right",
 	"workbench.startupEditor": "none",
 	"window.nativeTabs": false,
 	"window.autoDetectColorScheme": true,
 
-	// Editor
+	/* Editor */
 	"editor.fontFamily": "CommitMono Nerd Font",
 	"editor.fontLigatures": true,
 	"editor.fontWeight": "normal",
@@ -27,18 +29,15 @@
 	"terminal.integrated.lineHeight": 1.3,
 	"terminal.integrated.cursorBlinking": true,
 
-	// Formatting
+	/* Formatting */
 	"editor.formatOnSave": true,
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.tabSize": 4,
-	// Prettier
 	"prettier.useTabs": true,
-	// Black
 	"[python]": {
 		"editor.formatOnType": true,
 		"editor.defaultFormatter": "ms-python.black-formatter"
 	},
-	// YAML by Red Hat
 	"yaml.format.enable": true,
 	"[yaml]": {
 		"editor.tabSize": 2
@@ -46,13 +45,17 @@
 	"[github-actions-workflow]": {
 		"editor.tabSize": 2
 	},
+	"[FortranFreeForm]": {
+		"editor.defaultFormatter": "fortran-lang.linter-gfortran"
+	},
+	"fortran.formatting.formatter": "fprettify",
 
-	// Git
+	/* Git */
 	"git.autofetch": true,
 	"git.confirmSync": false,
 	"git.suggestSmartCommit": false,
 
-	// Linting
+	/* Linting */
 	"css.lint.important": "warning",
 	"css.lint.universalSelector": "warning",
 	"css.lint.validProperties": ["view-transition-name"],
@@ -61,7 +64,7 @@
 	"scss.lint.universalSelector": "warning",
 	"scss.lint.unknownAtRules": "ignore",
 
-	// Explorer/Files
+	/* Explorer/Files */
 	"material-icon-theme.files.associations": {
 		".eleventy.js": "../../icons/eleventy",
 		"eleventy.config.js": "../../icons/eleventy",
@@ -82,7 +85,7 @@
 	"explorer.fileNesting.enabled": true,
 	"explorer.fileNesting.expand": false,
 	"explorer.fileNesting.patterns": {
-		"//": "Last update at 10/27/2023, 8:22:54 AM",
+		"//": "Last update at 11/10/2023, 9:29:15 PM",
 		"*.asax": "$(capture).*.cs, $(capture).*.vb",
 		"*.ascx": "$(capture).*.cs, $(capture).*.vb",
 		"*.ashx": "$(capture).*.cs, $(capture).*.vb",
@@ -159,10 +162,11 @@
 		"vue.config.*": "*.env, .babelrc*, .codecov, .cssnanorc*, .env.*, .envrc, .htmlnanorc*, .lighthouserc.*, .mocha*, .postcssrc*, .terserrc*, api-extractor.json, ava.config.*, babel.config.*, contentlayer.config.*, cssnano.config.*, cypress.*, env.d.ts, formkit.config.*, formulate.config.*, histoire.config.*, htmlnanorc.*, i18n.config.*, jasmine.*, jest.config.*, jsconfig.*, karma*, lighthouserc.*, playwright.config.*, postcss.config.*, puppeteer.config.*, rspack.config.*, svgo.config.*, tailwind.config.*, tsconfig.*, tsdoc.*, uno.config.*, unocss.config.*, vitest.config.*, vuetify.config.*, webpack.config.*, windi.config.*"
 	},
 
-	// Other
+	/* Other */
 	"diffEditor.ignoreTrimWhitespace": false,
 	"javascript.updateImportsOnFileMove.enabled": "always",
 	"typescript.updateImportsOnFileMove.enabled": "always",
+	"typescript.inlayHints.parameterNames.enabled": "all",
 	"security.workspace.trust.untrustedFiles": "open",
 	"python.analysis.autoFormatStrings": true,
 	"python.analysis.inlayHints.callArgumentNames": "partial",
@@ -178,8 +182,5 @@
 	"autoDocstring.startOnNewLine": true,
 	"svg.preview.boundingBox": true,
 	"svg.preview.transparencyGrid": false,
-	"[FortranFreeForm]": {
-		"editor.defaultFormatter": "fortran-lang.linter-gfortran"
-	},
-	"fortran.formatting.formatter": "fprettify"
+	"githubPullRequests.createOnPublishBranch": "never"
 }
