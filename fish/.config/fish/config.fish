@@ -78,6 +78,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias dig='doggo'
 alias gitui='gitui -t frappe.ron'
+alias rg='rg --hyperlink-format vscode'
 
 # Git
 abbr -a gp git push origin

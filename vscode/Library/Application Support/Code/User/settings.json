@@ -9,7 +9,6 @@
 	"workbench.fontAliasing": "antialiased",
 	"workbench.sideBar.location": "left",
 	"workbench.editor.showTabs": "single",
-	"workbench.activityBar.location": "top",
 	"workbench.editor.tabCloseButton": "right",
 	"workbench.startupEditor": "none",
 	"window.nativeTabs": false,
@@ -49,6 +48,9 @@
 		"editor.defaultFormatter": "fortran-lang.linter-gfortran"
 	},
 	"fortran.formatting.formatter": "fprettify",
+	"[lua]": {
+		"editor.defaultFormatter": "JohnnyMorganz.stylua"
+	},
 
 	/* Git */
 	"git.autofetch": true,
@@ -86,11 +88,12 @@
 	"explorer.fileNesting.enabled": true,
 	"explorer.fileNesting.expand": false,
 	"explorer.fileNesting.patterns": {
-		"//": "Last update at 11/21/2023, 8:02:46 PM",
+		"//": "Last update at 12/2/2023, 1:29:28 PM",
 		"*.asax": "$(capture).*.cs, $(capture).*.vb",
 		"*.ascx": "$(capture).*.cs, $(capture).*.vb",
 		"*.ashx": "$(capture).*.cs, $(capture).*.vb",
 		"*.aspx": "$(capture).*.cs, $(capture).*.vb",
+		"*.axaml": "$(capture).axaml.cs",
 		"*.bloc.dart": "$(capture).event.dart, $(capture).state.dart",
 		"*.c": "$(capture).h",
 		"*.cc": "$(capture).hpp, $(capture).h, $(capture).hxx",
@@ -128,7 +131,7 @@
 		".gitignore": ".gitattributes, .gitmodules, .gitmessage, .mailmap, .git-blame*",
 		".project": ".classpath",
 		"BUILD.bazel": "*.bzl, *.bazel, *.bazelrc, bazel.rc, .bazelignore, .bazelproject, WORKSPACE",
-		"CMakeLists.txt": "*.cmake, *.cmake.in, .cmake-format.yaml, CMakePresets.json",
+		"CMakeLists.txt": "*.cmake, *.cmake.in, .cmake-format.yaml, CMakePresets.json, CMakeCache.txt",
 		"Cargo.toml": ".clippy.toml, .rustfmt.toml, cargo.lock, clippy.toml, cross.toml, rust-toolchain.toml, rustfmt.toml",
 		"Dockerfile": "*.dockerfile, .devcontainer.*, .dockerignore, docker-compose.*, dockerfile*",
 		"I*.cs": "$(capture).cs",
