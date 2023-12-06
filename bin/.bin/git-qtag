@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+message=${1:-$(git log -1 --pretty=%B)}
+hash=$(git rev-parse HEAD)
+git tag -a $message $hash -m ""
+git push origin $message
