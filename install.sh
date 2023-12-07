@@ -56,3 +56,20 @@ cat 'Pnpmfile' | while read -r line; do
 done
 echo "Installing global Python packages..."
 pip3 install --user -r requirements.txt
+echo "Installing global Cargo packages..."
+while IFS= read -r line; do
+    name=$(echo "$line" | awk '{print $1}')
+    version=$(echo "$line" | awk '{print $2}')
+    url=$(echo "$line" | awk '{print $3}')
+
+    IFS='#' read -ra parts <<< "${url:1:-1}"
+    href=${parts[0]}
+    hash=${parts[1]}
+
+    if [[ $url != "" ]]; then
+        cargo install --git "$href" --rev "$hash"
+    else
+        cargo install "$name" --version "${version:1}"
+    fi
+done < Cargofile
+
