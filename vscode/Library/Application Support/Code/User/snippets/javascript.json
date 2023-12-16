@@ -1,6 +1,0 @@
-{
-    "Shebang (node)": {
-        "prefix": "#node",
-        "body": "#!/usr/bin/env node"
-    }
-}
