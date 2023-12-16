@@ -21,7 +21,7 @@ else
 fi
 remote="${2:-origin}"
 if [ "$branch" = "main" ] || [ "$branch" = "master" ]; then
-    echo "git-branch-rm: error: cannot delete branch '$branch' (protected primary branch)"
+    echo "git-branch-rm: cannot delete branch '$branch' (protected primary branch)"
     exit 1
 fi
 answer="$(basename $PWD)@$branch"
@@ -34,7 +34,7 @@ while true; do
         break
     fi
 done
-git checkout master &> /dev/null || git checkout main &> /dev/null || (echo "git-branch-rm: error: could not switch to main/master branch" && exit 1)
+git checkout master &> /dev/null || git checkout main &> /dev/null || (echo "git-branch-rm: could not switch to main/master branch" && exit 1)
 echo "Switched to branch '$(current_branch)'."
 
 git branch -D "$branch" &> /dev/null && echo "Deleted local branch '$branch'." || echo "Tried '$branch'; does not exist locally." 

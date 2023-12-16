@@ -14,7 +14,7 @@ fi
 
 check_exists() {
     if ! man -w "$1" &> /dev/null; then
-        echo "docs: error: manual page for '$1' does not exist"
+        echo "docs: manual page for '$1' does not exist"
         exit 1
     fi
 }
@@ -34,7 +34,7 @@ case "$x" in
             check_exists "$page"
             url="https://ss64.com/osx/$page.html"
             if [ "$(curl -I -o /dev/null -s -w "%{http_code}" "$url")" -eq 404 ]; then
-                echo "docs: error: the page for '$page' returned a 404 status code"
+                echo "docs: the page for '$page' returned a 404 status code"
                 exit 1
             fi
             echo "Opening page for '$page' in the default browser..."

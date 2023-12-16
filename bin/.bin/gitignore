@@ -39,7 +39,7 @@ get() {
 }
 
 if [ ! $(grep -E "(?:^|,)$1(?:$|,)" "$(get list)") ]; then
-    echo "error: '$1' not found"
+    echo "gitignore: '$1' not found"
     echo "Did you mean..."
     while IFS= read -r line; do
         echo " - $line"
