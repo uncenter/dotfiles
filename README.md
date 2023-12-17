@@ -38,7 +38,7 @@ I use a script, `update.sh`, to update the various lists of packages (`Brewfile`
 
 ### Restoring
 
-I haven't actually had to fully restore a system since I've made these, but I have a work-in-progress and unteseted install script, `install.sh`. It installs all of the packages in all of the `__file`s, and uses `stow` to symlink all of the configurations in this repository.
+I haven't actually had to fully restore a system since I've made these, but I have a work-in-progress and untested install script, `install.sh`. It installs all of the packages in all of the `__file`s, and uses `stow` to symlink all of the configurations in this repository.
 
 ## Other packages
 
