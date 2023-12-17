@@ -23,18 +23,22 @@ $ ts 1672549200
 January 01, 2023 00:00:00
 ```
 
-## `git-open`
+## Git subcommands
+
+If you run `git <xyz>` and there is a `git-<xyz>` script in $PATH, Git will run that script. For example, the `git-open` script below means I can run `git open` like any other Git command.
+
+### `git-open`
 
 Open the `origin` URL of the current repository in the browser.
 
-## `git-qtag`
+### `git-qtag`
 
 Quickly create a tag for the most recent commit. I use this often when publishing a new version of something - I'll make a commit like `v0.1.0`, and I can just run `git qtag` to create a tag called `v0.1.0` for that commit. Very helpful since I use GitHub Actions release workflows that run on tags like that.
 
-## `git-tag-rm`
+### `git-tag-rm`
 
 Delete a tag locally and remotely.
 
-## `git-branch-rm`
+### `git-branch-rm`
 
 Delete a branch, locally and remotely. Tries to avoid deleting important branches (prevents you from deleting `master`/`main`).
