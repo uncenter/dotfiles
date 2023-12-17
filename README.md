@@ -3,24 +3,9 @@
 ![macOS](https://img.shields.io/badge/macOS-14.1.2-47999e.svg?style=flat-square)
 [![GNU Stow](https://img.shields.io/homebrew/v/stow?style=flat-square&label=GNU%20Stow&color=b48ead)](https://formulae.brew.sh/formula/stow)
 
-My dotfiles configuration for macOS!
+My dotfiles for macOS! I'm using [GNU Stow](https://www.gnu.org/software/stow/) ([documentation](https://www.gnu.org/software/stow/manual/stow.html)), a free and lightweight
+dotfiles manager written in Perl, to manage these. I used this [incredibly helpful guide](https://www.jakewiesler.com/blog/managing-dotfiles) to get started with `stow`, definitely read it if you are unfamiliar with the program.
 
-## Structure
-
-I like to keep my home directory as clean as possible in accordance with the [XDG base directory specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html):
-
-| Variable          | Location         |
-| ----------------- | ---------------- |
-| `XDG_CONFIG_HOME` | `~/.config`      |
-| `XDG_CACHE_HOME`  | `~/.cache`       |
-| `XDG_STATE_HOME`  | `~/.local/state` |
-| `XDG_DATA_HOME`   | `~/.local/share` |
-| `XDG_BIN_HOME`    | `~/.local/bin`   |
-
-## Dotfiles manager
-
-I'm using [GNU Stow](https://www.gnu.org/software/stow/) ([documentation](https://www.gnu.org/software/stow/manual/stow.html)) - a free and lightweight
-dotfiles manager written in Perl. I used this [incredibly helpful guide](https://www.jakewiesler.com/blog/managing-dotfiles) to get started with `stow`, definitely read it if you are unfamiliar with the program.
 ## Usage
 
 ```sh
