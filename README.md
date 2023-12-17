@@ -6,6 +6,15 @@
 My dotfiles for macOS! I'm using [GNU Stow](https://www.gnu.org/software/stow/) ([documentation](https://www.gnu.org/software/stow/manual/stow.html)), a free and lightweight
 dotfiles manager written in Perl, to manage these. I used this [incredibly helpful guide](https://www.jakewiesler.com/blog/managing-dotfiles) to get started with `stow`, definitely read it if you are unfamiliar with the program.
 
+## My setup
+
+- Terminal: [Kitty](https://github.com/kovidgoyal/kitty)
+- Shell: [Fish](https://github.com/fish-shell/fish-shell)
+- Prompt: [Starship](https://starship.rs/)
+- Editor: [Visual Studio Code](https://code.visualstudio.com/)
+
+I also use a bunch of CLI tools that have configurations here, see https://uncenter.dev/uses/#shell.
+
 ## Usage
 
 ```sh
@@ -22,6 +31,14 @@ You can now install any configurations you wish with `stow`:
 cd .dotfiles
 stow --target=$HOME <package>
 ```
+
+### Updating
+
+I use a script, `update.sh`, to update the various lists of packages (`Brewfile`, `Cargofile`, `Fnmfile`, `Pnpmfile`). You can run it with `just update` (assuming you have [just](https://github.com/casey/just) installed).
+
+### Restoring
+
+I haven't actually had to fully restore a system since I've made these, but I have a work-in-progress and unteseted install script, `install.sh`. It installs all of the packages in all of the `__file`s, and uses `stow` to symlink all of the configurations in this repository.
 
 ## Other packages
 
