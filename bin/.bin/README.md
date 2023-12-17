@@ -12,7 +12,7 @@ A versatile `man` alias that lets me specify a flag to open the manual page for 
 
 ## `gitignore`
 
-Create a .gitignore from a template. I odn't use this one much anymore, but you can just do `gitignore node` or whatever to pull a .gitignore template for Node.js from https://www.toptal.com/developers/gitignore/api. Comes with caching too, for no reason lol.
+Create a .gitignore from a template. I don't use this one much anymore, but you can just do `gitignore node` or whatever to pull a .gitignore template for Node.js from https://www.toptal.com/developers/gitignore/api. Comes with caching too, for no reason lol.
 
 ## `ts`
 
