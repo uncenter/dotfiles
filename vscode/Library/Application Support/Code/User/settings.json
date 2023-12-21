@@ -38,10 +38,12 @@
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.tabSize": 4,
 	"prettier.useTabs": true,
+	// PYTHON - Black
 	"[python]": {
 		"editor.formatOnType": true,
 		"editor.defaultFormatter": "ms-python.black-formatter"
 	},
+	// YAML
 	"yaml.format.enable": true,
 	"[yaml]": {
 		"editor.tabSize": 2
@@ -49,12 +51,19 @@
 	"[github-actions-workflow]": {
 		"editor.tabSize": 2
 	},
+	// FORTRAN - fprettify
 	"[FortranFreeForm]": {
 		"editor.defaultFormatter": "fortran-lang.linter-gfortran"
 	},
 	"fortran.formatting.formatter": "fprettify",
+	// LUA - Stylua
 	"[lua]": {
 		"editor.defaultFormatter": "JohnnyMorganz.stylua"
+	},
+	// RUST - cargo fmt
+	"[rust]": {
+		"editor.defaultFormatter": "rust-lang.rust-analyzer",
+		"editor.formatOnSave": true
 	},
 
 	/* Git */
@@ -93,7 +102,7 @@
 	"explorer.fileNesting.enabled": true,
 	"explorer.fileNesting.expand": false,
 	"explorer.fileNesting.patterns": {
-		"//": "Last update at 12/13/2023, 5:58:32 PM",
+		"//": "Last update at 12/20/2023, 6:08:22 AM",
 		"*.asax": "$(capture).*.cs, $(capture).*.vb",
 		"*.ascx": "$(capture).*.cs, $(capture).*.vb",
 		"*.ashx": "$(capture).*.cs, $(capture).*.vb",
