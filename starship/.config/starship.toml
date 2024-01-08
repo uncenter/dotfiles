@@ -50,8 +50,10 @@ style = "red"
 format = '[$indicator]($style)'
 
 [cmd_duration]
-style = "subtext1"
-format = '[\[](overlay0)[$duration]($style)[\]](overlay0)'
+min_time = 0
+show_milliseconds = true
+style = "subtext0"
+format = '[$duration]($style)'
 
 [directory]
 truncation_length = 5
