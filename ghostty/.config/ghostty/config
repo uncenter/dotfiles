@@ -1,0 +1,12 @@
+theme = catppuccin-frappe
+background = #303446
+
+font-family = CommitMono Nerd Font
+
+working-directory = /Users/uncenter/Dev
+copy-on-select = false
+shell-integration = detect
+macos-option-as-alt = true
+
+window-padding-x = 25
+window-padding-y = 25
