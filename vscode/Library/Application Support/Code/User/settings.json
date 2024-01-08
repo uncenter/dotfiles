@@ -8,13 +8,34 @@
 	"workbench.preferredLightColorTheme": "Catppuccin Latte",
 	"workbench.fontAliasing": "antialiased",
 	"workbench.sideBar.location": "left",
-	"workbench.editor.showTabs": "single",
 	"workbench.startupEditor": "none",
-	"window.nativeTabs": false,
 	"window.autoDetectColorScheme": true,
+	"workbench.editor.showTabs": "multiple",
+	"window.nativeTabs": true,
+	"window.titleBarStyle": "native",
+	"workbench.activityBar.location": "hidden",
+	"workbench.statusBar.visible": false,
+	"apc.electron": {
+		"titleBarStyle": "hiddenInset",
+		"trafficLightPosition": {
+			"x": 11,
+			"y": 10
+		}
+	},
+	"apc.header": {
+		"height": 36
+	},
+	"apc.stylesheet": {
+		".title-label > h2": "display: none", // Remove primary side bar title.
+		".title-actions": "display: none", // Remove primary side bar action icons.
+		".editor-actions": "display: none", // Remove editor action icons.
+		".nosidebar .inline-tabs-placeholder": "width: 75px" // Align tabs to not overlap window controls when primary bar is hidden.
+	},
+	"editor.minimap.enabled": false,
 
 	/* Editor */
 	"editor.fontFamily": "CommitMono Nerd Font",
+	"apc.font.family": "CommitMono Nerd Font",
 	"editor.fontLigatures": true,
 	"editor.fontWeight": "normal",
 	"editor.fontSize": 14,
@@ -26,12 +47,7 @@
 	"terminal.integrated.fontSize": 14,
 	"terminal.integrated.lineHeight": 1.3,
 	"terminal.integrated.cursorBlinking": true,
-	"editor.cursorSmoothCaretAnimation": "on",
-	"editor.rulers": [
-		{
-			"column": 100
-		}
-	],
+	"editor.cursorSmoothCaretAnimation": "off",
 
 	/* Formatting */
 	"editor.formatOnSave": true,
@@ -102,7 +118,7 @@
 	"explorer.fileNesting.enabled": true,
 	"explorer.fileNesting.expand": false,
 	"explorer.fileNesting.patterns": {
-		"//": "Last update at 12/20/2023, 6:08:22 AM",
+		"//": "Last update at 1/6/2024, 10:45:15 PM",
 		"*.asax": "$(capture).*.cs, $(capture).*.vb",
 		"*.ascx": "$(capture).*.cs, $(capture).*.vb",
 		"*.ashx": "$(capture).*.cs, $(capture).*.vb",
@@ -181,20 +197,16 @@
 		"vite.config.*": "*.env, .babelrc*, .codecov, .cssnanorc*, .env.*, .envrc, .htmlnanorc*, .lighthouserc.*, .mocha*, .postcssrc*, .terserrc*, api-extractor.json, ava.config.*, babel.config.*, contentlayer.config.*, cssnano.config.*, cypress.*, env.d.ts, formkit.config.*, formulate.config.*, histoire.config.*, htmlnanorc.*, i18n.config.*, jasmine.*, jest.config.*, jsconfig.*, karma*, lighthouserc.*, panda.config.*, playwright.config.*, postcss.config.*, puppeteer.config.*, rspack.config.*, svgo.config.*, tailwind.config.*, tsconfig.*, tsdoc.*, uno.config.*, unocss.config.*, vitest.config.*, vuetify.config.*, webpack.config.*, windi.config.*",
 		"vue.config.*": "*.env, .babelrc*, .codecov, .cssnanorc*, .env.*, .envrc, .htmlnanorc*, .lighthouserc.*, .mocha*, .postcssrc*, .terserrc*, api-extractor.json, ava.config.*, babel.config.*, contentlayer.config.*, cssnano.config.*, cypress.*, env.d.ts, formkit.config.*, formulate.config.*, histoire.config.*, htmlnanorc.*, i18n.config.*, jasmine.*, jest.config.*, jsconfig.*, karma*, lighthouserc.*, panda.config.*, playwright.config.*, postcss.config.*, puppeteer.config.*, rspack.config.*, svgo.config.*, tailwind.config.*, tsconfig.*, tsdoc.*, uno.config.*, unocss.config.*, vitest.config.*, vuetify.config.*, webpack.config.*, windi.config.*"
 	},
-
-	/* Other */
-	"diffEditor.ignoreTrimWhitespace": false,
 	"javascript.updateImportsOnFileMove.enabled": "always",
 	"typescript.updateImportsOnFileMove.enabled": "always",
-	"typescript.inlayHints.parameterNames.enabled": "all",
 	"security.workspace.trust.untrustedFiles": "open",
-	"python.analysis.autoFormatStrings": true,
-	"python.analysis.inlayHints.callArgumentNames": "partial",
-	"python.analysis.inlayHints.functionReturnTypes": true,
-	"redhat.telemetry.enabled": false,
-	"tailwindCSS.emmetCompletions": true,
+
+	/* Extensions */
 	"extensions.autoUpdate": "onlyEnabledExtensions",
 	"extensions.ignoreRecommendations": true,
+
+	"redhat.telemetry.enabled": false,
+	"tailwindCSS.emmetCompletions": true,
 	"vscord.app.name": "Visual Studio Code",
 	"vscord.status.idle.disconnectOnIdle": true,
 	"vscord.status.problems.enabled": false,
@@ -204,5 +216,12 @@
 	"svg.preview.transparencyGrid": false,
 	"githubPullRequests.createOnPublishBranch": "never",
 	"githubPullRequests.pullBranch": "never",
-	"workbench.editor.tabActionLocation": "right"
+
+	/* Other */
+	"diffEditor.ignoreTrimWhitespace": false,
+	"typescript.inlayHints.parameterNames.enabled": "all",
+	"python.analysis.autoFormatStrings": true,
+	"python.analysis.inlayHints.callArgumentNames": "partial",
+	"python.analysis.inlayHints.functionReturnTypes": true,
+	"editor.linkedEditing": true
 }
