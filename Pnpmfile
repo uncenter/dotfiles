@@ -1,9 +1,11 @@
+alex@11.0.1
 banal@1.4.0
-banben@0.1.1
+banben@0.3.0
 lighthouse@11.4.0
 npm@10.2.5
 prettier@3.1.1
-pyright@1.1.341
+pyright@1.1.344
+sirv-cli@2.0.2
 typescript@5.3.3
 typescript-language-server@4.2.0
 vscode-langservers-extracted@4.8.0
