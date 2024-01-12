@@ -1,3 +1,5 @@
+# https://github.com/mitchellh/ghostty/blob/main/src/config/Config.zig
+
 theme = catppuccin-frappe
 background = #303446
 
