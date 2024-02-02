@@ -37,7 +37,7 @@ set -gx GPG_TTY (tty)
 # gpgconf --launch gpg-agent
 
 set -gx LANG en_US.UTF-8
-set -gx EDITOR "hx"
+set -gx EDITOR "nvim"
 set -gx VISUAL "code"
 set -gx LESS "-R"
 set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"
