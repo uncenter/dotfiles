@@ -8,6 +8,10 @@ font-size = 15
 adjust-cell-height = 10
 
 working-directory = /Users/uncenter/Dev
+window-inherit-working-directory = false
+
+macos-titlebar-tabs = true
+
 copy-on-select = false
 shell-integration = detect
 macos-option-as-alt = true
