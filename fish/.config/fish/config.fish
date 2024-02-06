@@ -122,6 +122,13 @@ function nocache
     npm cache clean --force; pnpm store prune; yarn cache clean
 end
 
+function pngtowebp
+    for file in *.png
+        set output (basename $file .png).webp
+        cwebp -q 100 $file -o $output
+    end
+end
+
 # OS X specific aliases
 alias showfiles="defaults write com.apple.finder AppleShowAllFiles -bool true; and killall Finder"
 alias hidefiles="defaults write com.apple.finder AppleShowAllFiles -bool false; and killall Finder"
