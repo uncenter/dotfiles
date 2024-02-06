@@ -1,7 +1,7 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 add_newline = false
-palette = "catppuccin_macchiato"
+palette = "catppuccin_frappe"
 continuation_prompt = '[](yellow) '
 right_format = '$cmd_duration'
 format = """
@@ -40,14 +40,6 @@ symbol = ' '
 success_symbol = "[](green)"
 error_symbol = "[](red)"
 vimcmd_symbol = "[](green)"
-
-[shell]
-disabled = false
-fish_indicator = ''
-bash_indicator = '<bash>'
-zsh_indicator = '<zsh>'
-style = "red"
-format = '[$indicator]($style)'
 
 [cmd_duration]
 min_time = 0
