@@ -12,11 +12,22 @@ return {
 
 			wk.register({
 				["<leader>"] = {
-					y = { '"+y', "Copy to clipboard" },
+					-- Clipboard --
+					y = { '"+y', "Copy/yank to clipboard" },
 					p = { '"+p', "Paste from clipboard" },
+
+					-- Git --
 					gp = { "<cmd>Gitsigns preview_hunk<cr>", "Preview Git diff" },
 					gb = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle Git line blame" },
-					gg = { "<cmd>LazyGit<cr>", "LazyGit" },
+					gg = { "<cmd>LazyGit<cr>", "Open LazyGit" },
+
+					-- Files --
+					ft = { "<cmd>NvimTreeToggle<cr>", "Toggle file tree" },
+					fe = { "<cmd>Yazi<cr>", "Open file explorer" },
+
+					-- Buffer --
+					bf = { vim.lsp.buf.format, "Format buffer" },
+
 					q = { "<cmd>qall<cr>", "Quit all" },
 				},
 			}, { mode = { "n", "v" } })

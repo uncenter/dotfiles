@@ -1,5 +1,10 @@
 return {
 	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		opts = {},
+	},
+	{
 		"hrsh7th/cmp-nvim-lsp",
 	},
 	{

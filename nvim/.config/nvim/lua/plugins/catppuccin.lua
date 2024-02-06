@@ -7,7 +7,16 @@ return {
 		config = function()
 			vim.cmd.colorscheme("catppuccin-frappe")
 			require("catppuccin").setup({
-				nvimtree = true,
+				integrations = {
+					nvimtree = true,
+					barbar = true,
+					gitsigns = true,
+					navic = {
+						enabled = true,
+						custom_bg = "NONE",
+					},
+					which_key = true,
+				},
 			})
 		end,
 	},
