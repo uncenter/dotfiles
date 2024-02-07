@@ -15,6 +15,7 @@ brew "ccache"
 brew "cmake"
 brew "cmatrix"
 brew "coreutils"
+brew "cowsay"
 brew "curl"
 brew "deno"
 brew "diff-so-fancy"
@@ -46,6 +47,7 @@ brew "haskell-stack"
 brew "helix", args: ["HEAD"]
 brew "himalaya"
 brew "hyperfine"
+brew "imagemagick"
 brew "isort"
 brew "jq"
 brew "just"
@@ -75,7 +77,6 @@ brew "sl"
 brew "spotify-tui"
 brew "starship"
 brew "stow"
-brew "taplo"
 brew "terminal-notifier"
 brew "tokei"
 brew "tree"
@@ -132,6 +133,7 @@ mas "Color Picker", id: 1545870783
 mas "Hyperduck", id: 6444667067
 mas "Pure Paste", id: 1611378436
 mas "Shareful", id: 1522267256
+mas "Xcode", id: 497799835
 vscode "antfu.file-nesting"
 vscode "astro-build.astro-vscode"
 vscode "bierner.comment-tagged-templates"
