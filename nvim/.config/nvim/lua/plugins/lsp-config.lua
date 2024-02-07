@@ -29,4 +29,17 @@ return {
 			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
 		end,
 	},
+	{
+		"mrcjkb/rustaceanvim",
+		version = "*",
+		ft = { "rust" },
+		cond = function()
+			local f = io.open("Cargo.toml", "r")
+			if f ~= nil then
+				io.close(f)
+				return true
+			end
+		end,
+		opts = true,
+	},
 }
