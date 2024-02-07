@@ -3,6 +3,9 @@ return {
 		"nvim-telescope/telescope-ui-select.nvim",
 	},
 	{
+		"nvim-telescope/telescope-project.nvim",
+	},
+	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.5",
 		dependencies = { "nvim-lua/plenary.nvim" },
@@ -14,11 +17,22 @@ return {
 					},
 				},
 			})
-			local builtin = require("telescope.builtin")
-			vim.keymap.set("n", "<leader>fd", builtin.find_files, {})
-			vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 
-			require("telescope").load_extension("ui-select")
+			local tl = require("telescope")
+
+			tl.load_extension("ui-select")
+			tl.load_extension("project")
+
+			local builtin = require("telescope.builtin")
+			local wk = require("which-key")
+
+			wk.register({
+				["<leader>f"] = {
+					d = { builtin.find_files, "Find files" },
+					g = { builtin.live_grep, "Live grep" },
+					p = { "<cmd>Telescope project<cr>", "Projects" },
+				},
+			})
 		end,
 	},
 }

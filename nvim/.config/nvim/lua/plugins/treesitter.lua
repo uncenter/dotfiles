@@ -9,6 +9,12 @@ return {
 				main = "nvim-ts-autotag",
 				opts = {},
 			},
+			{
+				"nvim-treesitter/nvim-treesitter-context",
+				opts = {
+					enable = false,
+				},
+			},
 		},
 		config = function()
 			local config = require("nvim-treesitter.configs")

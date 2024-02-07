@@ -7,6 +7,7 @@ return {
 			sources = {
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.formatting.prettier,
+				null_ls.builtins.formatting.rustfmt,
 				null_ls.builtins.diagnostics.erb_lint,
 				null_ls.builtins.diagnostics.eslint_d,
 			},
