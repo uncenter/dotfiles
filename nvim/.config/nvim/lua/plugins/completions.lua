@@ -5,6 +5,12 @@ return {
 		opts = {},
 	},
 	{
+		"axelvc/template-string.nvim",
+		opts = {
+			remove_template_string = true,
+		},
+	},
+	{
 		"hrsh7th/cmp-nvim-lsp",
 	},
 	{
