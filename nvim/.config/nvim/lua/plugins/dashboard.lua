@@ -35,6 +35,7 @@ return {
 		local theta = require("alpha.themes.theta")
 		local dashboard = require("alpha.themes.dashboard")
 
+		-- https://ascii-to-lua-table.pages.dev/
 		local header = {
 			"  ／l、    ",
 			"（ﾟ､ ｡ ７  ",
