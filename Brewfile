@@ -124,7 +124,7 @@ cask "spacedrive"
 cask "spotify"
 cask "thunderbird"
 cask "visual-studio-code"
-cask "zed"
+cask "zed-preview"
 cask "zoom"
 mas "1Password for Safari", id: 1569813296
 mas "Amphetamine", id: 937984704
