@@ -7,6 +7,7 @@ return {
 		},
 		opts = {
 			default_picker = "telescope",
+			default_action = "system",
 		},
 	},
 }
