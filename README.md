@@ -1,6 +1,6 @@
 <h1>Dotfiles</h1>
 
-![macOS](https://img.shields.io/badge/macOS-14.3-47999e.svg?style=flat-square)
+![macOS](https://img.shields.io/badge/macOS-14.3.1-47999e.svg?style=flat-square)
 [![GNU Stow](https://img.shields.io/homebrew/v/stow?style=flat-square&label=GNU%20Stow&color=b48ead)](https://formulae.brew.sh/formula/stow)
 
 My dotfiles for macOS! I'm using [GNU Stow](https://www.gnu.org/software/stow/) ([documentation](https://www.gnu.org/software/stow/manual/stow.html)), a free and lightweight
