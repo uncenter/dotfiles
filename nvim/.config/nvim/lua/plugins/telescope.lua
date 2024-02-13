@@ -27,8 +27,9 @@ return {
 			local wk = require("which-key")
 
 			wk.register({
-				["<leader>f"] = {
-					d = { builtin.find_files, "Find files" },
+				["<leader>t"] = {
+					name = "+telescope",
+					f = { builtin.find_files, "Find files" },
 					g = { builtin.live_grep, "Live grep" },
 					p = { "<cmd>Telescope project<cr>", "Projects" },
 				},

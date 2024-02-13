@@ -17,16 +17,37 @@ return {
 					p = { '"+p', "Paste from clipboard" },
 
 					-- Git --
-					gp = { "<cmd>Gitsigns preview_hunk<cr>", "Preview Git diff" },
-					gb = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle Git line blame" },
-					gg = { "<cmd>LazyGit<cr>", "Open LazyGit" },
+					g = {
+						name = "+git",
+						p = { "<cmd>Gitsigns preview_hunk<cr>", "Preview Git diff" },
+						b = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle Git line blame" },
+						g = { "<cmd>LazyGit<cr>", "Open LazyGit" },
+					},
 
 					-- Files --
-					ft = { "<cmd>NvimTreeToggle<cr>", "Toggle file tree" },
-					fe = { "<cmd>Yazi<cr>", "Open file explorer" },
+					f = {
+						name = "+file",
+						t = { "<cmd>NvimTreeToggle<cr>", "Toggle file tree" },
+						e = { "<cmd>Yazi<cr>", "Open file explorer" },
+					},
 
 					-- Buffer --
-					bf = { vim.lsp.buf.format, "Format buffer" },
+					b = {
+						name = "+buffer",
+						s = { "<cmd>w<cr>", "Save buffer" },
+						f = { vim.lsp.buf.format, "Format buffer" },
+						c = { "<cmd>%y+<cr>", "Copy buffer" },
+					},
+
+					-- LSP --
+					l = {
+						name = "+lsp",
+						d = { vim.lsp.buf.definition, "Definition" },
+						r = { vim.lsp.buf.references, "References" },
+						a = { vim.lsp.buf.code_action, "Code actions" },
+					},
+
+					-- 					vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 
 					q = { "<cmd>qall<cr>", "Quit all" },
 				},
@@ -35,7 +56,7 @@ return {
 			wk.register({
 				["<C-s>"] = {
 					"<cmd>w<cr>",
-					"Save File",
+					"Save file",
 				},
 			})
 		end,
