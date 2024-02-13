@@ -42,12 +42,14 @@ return {
 					-- LSP --
 					l = {
 						name = "+lsp",
-						d = { vim.lsp.buf.definition, "Definition" },
-						r = { vim.lsp.buf.references, "References" },
+						g = {
+							name = "+goto",
+							d = { vim.lsp.buf.definition, "Definition" },
+							r = { vim.lsp.buf.references, "References" },
+						},
+						r = { vim.lsp.buf.rename, "Rename" },
 						a = { vim.lsp.buf.code_action, "Code actions" },
 					},
-
-					-- 					vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 
 					q = { "<cmd>qall<cr>", "Quit all" },
 				},
