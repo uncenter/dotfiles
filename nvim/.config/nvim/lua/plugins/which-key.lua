@@ -48,6 +48,7 @@ return {
 							r = { vim.lsp.buf.references, "References" },
 						},
 						r = { vim.lsp.buf.rename, "Rename" },
+						h = { vim.lsp.buf.hover, "Hover" },
 						a = { vim.lsp.buf.code_action, "Code actions" },
 					},
 
