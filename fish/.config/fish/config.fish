@@ -42,6 +42,13 @@ set -gx VISUAL "code"
 set -gx LESS "-R"
 set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"
 
+
+# https://github.com/catppuccin/fzf
+set -gx FZF_DEFAULT_OPTS "\
+--color=bg+:#414559,bg:#303446,spinner:#f2d5cf,hl:#e78284 \
+--color=fg:#c6d0f5,header:#e78284,info:#ca9ee6,pointer:#f2d5cf \
+--color=marker:#f2d5cf,fg+:#c6d0f5,prompt:#ca9ee6,hl+:#e78284"
+
 /opt/homebrew/bin/brew shellenv | source
 pyenv init - | source
 
@@ -77,7 +84,6 @@ alias mkdir='mkdir -p'
 alias cp='cp -i'
 alias mv='mv -i'
 alias dig='doggo'
-alias gitui='gitui -t frappe.ron'
 alias rg='rg --hyperlink-format vscode'
 alias cx='chmod +x'
 
@@ -125,15 +131,9 @@ end
 function pngtowebp
     for file in *.png
         set output (basename $file .png).webp
-        cwebp -q 100 $file -o $output
+        cwebp -lossless $file -o $output
     end
 end
-
-# OS X specific aliases
-alias showfiles="defaults write com.apple.finder AppleShowAllFiles -bool true; and killall Finder"
-alias hidefiles="defaults write com.apple.finder AppleShowAllFiles -bool false; and killall Finder"
-alias stfu="osascript -e 'set volume output muted true'"
-alias pumpitup="osascript -e 'set volume output volume 100'"
 
 function update
   brew update
@@ -170,5 +170,6 @@ end
 starship init fish | source
 fnm env | source
 atuin init fish | source
+zoxide init --cmd cd fish | source
 source ~/.config/tabtab/fish/__tabtab.fish
 
