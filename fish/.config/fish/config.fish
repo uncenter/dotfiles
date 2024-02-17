@@ -170,6 +170,6 @@ end
 starship init fish | source
 fnm env | source
 atuin init fish | source
-zoxide init --cmd cd fish | source
+zoxide init fish | source
 source ~/.config/tabtab/fish/__tabtab.fish
 
