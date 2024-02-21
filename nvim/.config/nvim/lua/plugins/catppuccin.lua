@@ -9,7 +9,7 @@ return {
 			require("catppuccin").setup({
 				integrations = {
 					nvimtree = true,
-					barbar = true,
+					notify = true,
 					gitsigns = true,
 					navic = {
 						enabled = true,

@@ -12,7 +12,29 @@ return {
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 		},
-		opts = {},
+		config = function()
+			vim.api.nvim_create_autocmd({ "VimEnter" }, {
+				callback = function(data)
+					local real_file = vim.fn.filereadable(data.file) == 1
+					local no_name = data.file == ""
+						and vim.bo[data.buf].buftype == ""
+						and vim.bo[data.buf].filetype == "Alpha"
+					if not real_file and not no_name then
+						return
+					end
+					require("nvim-tree.api").tree.toggle({ focus = false, find_file = true })
+				end,
+			})
+			require("nvim-tree").setup({
+				sync_root_with_cwd = true,
+				renderer = {
+					root_folder_label = false,
+				},
+				view = {
+					width = {},
+				},
+			})
+		end,
 	},
 	{
 		"utilyre/barbecue.nvim",
@@ -25,34 +47,5 @@ return {
 		opts = {
 			theme = "catppuccin-frappe",
 		},
-	},
-	{
-		"akinsho/bufferline.nvim",
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-		},
-		after = "catppuccin",
-		config = function()
-			local bufferline = require("bufferline")
-
-			local v = vim.version()
-			local vStr = string.format("v%d.%d.%d", v.major, v.minor, v.patch)
-
-			bufferline.setup({
-				highlights = require("catppuccin.groups.integrations.bufferline").get(),
-				options = {
-					show_close_icon = false,
-					show_buffer_close_icons = false,
-					offsets = {
-						{
-							filetype = "NvimTree",
-							text = "   Neovim " .. vStr,
-							text_align = "left",
-							separator = "│",
-						},
-					},
-				},
-			})
-		end,
 	},
 }
