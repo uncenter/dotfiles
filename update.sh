@@ -25,6 +25,6 @@ spin "Updating Brewfile..." -- brew bundle dump --force && success "Updated Brew
 pnpm -g list | grep -Eo '@?[a-zA-Z0-9/-]+ [0-9]+\.[0-9]+\.[0-9]+' | awk '{print $1 "@" $2}' > Pnpmfile && success "Updated Pnpmfile."
 fnm list | grep -Eo '(v[0-9]+\.[0-9]+\.[0-9]+)( [A-Za-z0-9_]+)?' | awk '{print $1, $2}' > Fnmfile && success "Updated Fnmfile."
 python -m pip freeze > requirements.txt && success "Updated requirements.txt."
-cargo install --list | awk 'NR%2==1' | sed 's/.$//' > Cargofile && success "Updated Cargofile."
+cargo install --list | grep -v '^\s' | sed 's/://g' > Cargofile && success "Updated Cargofile."
 sd "macOS-([\d\.]*)" "macOS-$(sw_vers -productVersion)" README.md
 info "Dotfiles updated."
