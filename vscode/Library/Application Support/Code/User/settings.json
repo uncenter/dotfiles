@@ -6,6 +6,7 @@
 	"workbench.colorTheme": "Catppuccin Frappé",
 	"workbench.preferredDarkColorTheme": "Catppuccin Frappé",
 	"workbench.preferredLightColorTheme": "Catppuccin Latte",
+	"workbench.productIconTheme": "Tabler",
 	"workbench.fontAliasing": "antialiased",
 	"workbench.sideBar.location": "left",
 	"workbench.startupEditor": "none",
@@ -22,6 +23,8 @@
 	"editor.accessibilitySupport": "off",
 	"editor.inlineSuggest.enabled": true,
 	"editor.detectIndentation": false,
+	"editor.stickyScroll.enabled": false,
+	"editor.linkedEditing": true,
 	"workbench.editor.closeOnFileDelete": true,
 	"terminal.integrated.defaultProfile.osx": "fish",
 	"terminal.integrated.fontSize": 14,
@@ -34,12 +37,11 @@
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.tabSize": 4,
 	"prettier.useTabs": true,
-	// PYTHON - Black
+
 	"[python]": {
 		"editor.formatOnType": true,
 		"editor.defaultFormatter": "ms-python.black-formatter"
 	},
-	// YAML
 	"yaml.format.enable": true,
 	"[yaml]": {
 		"editor.tabSize": 2
@@ -47,16 +49,13 @@
 	"[github-actions-workflow]": {
 		"editor.tabSize": 2
 	},
-	// FORTRAN - fprettify
+	"fortran.formatting.formatter": "fprettify",
 	"[FortranFreeForm]": {
 		"editor.defaultFormatter": "fortran-lang.linter-gfortran"
 	},
-	"fortran.formatting.formatter": "fprettify",
-	// LUA - Stylua
 	"[lua]": {
 		"editor.defaultFormatter": "JohnnyMorganz.stylua"
 	},
-	// RUST - cargo fmt
 	"[rust]": {
 		"editor.defaultFormatter": "rust-lang.rust-analyzer",
 		"editor.formatOnSave": true
@@ -66,29 +65,13 @@
 	"git.autofetch": true,
 	"git.confirmSync": false,
 	"git.suggestSmartCommit": false,
+	"git.openRepositoryInParentFolders": "never",
 
 	/* Linting */
-	"css.lint.important": "warning",
-	"css.lint.universalSelector": "warning",
 	"css.lint.validProperties": ["view-transition-name"],
 	"css.lint.unknownProperties": "error",
-	"scss.lint.important": "warning",
-	"scss.lint.universalSelector": "warning",
-	"scss.lint.unknownAtRules": "ignore",
-	"less.lint.important": "ignore",
 
 	/* Explorer/Files */
-	"material-icon-theme.files.associations": {
-		".eleventy.js": "../../icons/eleventy",
-		"eleventy.config.js": "../../icons/eleventy",
-		"eleventy.config.cjs": "../../icons/eleventy",
-		".eleventyignore": "../../icons/eleventy",
-		"*.vto": "../../icons/vento",
-		"*.tape": "makefile",
-		"*.json5": "../../icons/json5",
-		"justfile": "makefile",
-		"LICENSE-content": "certificate"
-	},
 	"files.associations": {
 		"*.njk": "nunjucks"
 	},
@@ -98,7 +81,7 @@
 	"explorer.fileNesting.enabled": true,
 	"explorer.fileNesting.expand": false,
 	"explorer.fileNesting.patterns": {
-		"//": "Last update at 2/21/2024, 3:14:16 PM",
+		"//": "Last update at 2/26/2024, 9:19:28 AM",
 		"*.asax": "$(capture).*.cs, $(capture).*.vb",
 		"*.ascx": "$(capture).*.cs, $(capture).*.vb",
 		"*.ashx": "$(capture).*.cs, $(capture).*.vb",
@@ -197,12 +180,29 @@
 	"svg.preview.transparencyGrid": false,
 	"fileNestingUpdater.promptOnAutoUpdate": true,
 
-	/* Other */
-	"diffEditor.ignoreTrimWhitespace": false,
+	/* TypeScript */
 	"typescript.inlayHints.parameterNames.enabled": "all",
+	"totalTypeScript.hideAllTips": false,
+	"totalTypeScript.hideBasicTips": false,
+	"totalTypeScript.hiddenTips": [
+		"variable-type-annotation",
+		"keyof",
+		"passing-generics-to-types",
+		"never-keyword",
+		"mapped-type",
+		"typing-function-parameters",
+		"basic-types",
+		"type-alias-declaration",
+		"ts-object-type",
+		"literal-type",
+		"union-type",
+		"function-return-type",
+		"undefined-keyword"
+	],
+
+	/* Other */
 	"python.analysis.autoFormatStrings": true,
 	"python.analysis.inlayHints.callArgumentNames": "partial",
 	"python.analysis.inlayHints.functionReturnTypes": true,
-	"editor.linkedEditing": true,
-	"git.openRepositoryInParentFolders": "never"
+	"diffEditor.ignoreTrimWhitespace": false
 }
