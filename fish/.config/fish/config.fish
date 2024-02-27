@@ -23,6 +23,7 @@ set -gx PNPM_HOME "$XDG_CACHE_HOME/pnpm"
 set -gx CARGO_HOME "$XDG_DATA_HOME/cargo"
 set -gx RUSTUP_HOME "$XDG_DATA_HOME/rustup"
 set -gx GEM_HOME "$XDG_DATA_HOME/gem"
+set -gx GEM_SPEC_CACHE "$XDG_CACHE_HOME/gem"
 set -gx GHCUP_USE_XDG_DIRS 1
 set -gx YARN_CACHE_FOLDER "$XDG_CACHE_HOME/yarn"
 set -gx YARN_ENABLE_TELEMETRY 0
@@ -32,6 +33,11 @@ set -gx TEALDEER_CACHE_DIR "$XDG_CACHE_HOME/tealdeer"
 set -gx GOPATH "$XDG_DATA_HOME/go"
 set -gx STACK_XDG 1
 set -gx WAKATIME_HOME "$XDG_CONFIG_HOME/wakatime"
+set -gx BUNDLE_USER_CONFIG "$XDG_CONFIG_HOME/bundle"
+set -gx BUNDLE_USER_CACHE "$XDG_CACHE_HOME/bundle"
+set -gx BUNDLE_USER_PLUGIN "$XDG_DATA_HOME/bundle"
+set -gx LESSHISTFILE "$XDG_STATE_HOME/less/history"
+set -gx DOCKER_CONFIG "$XDG_CONFIG_HOME/docker"
 
 set -gx GPG_TTY (tty)
 # gpgconf --launch gpg-agent
