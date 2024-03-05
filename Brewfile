@@ -89,7 +89,6 @@ brew "vsce"
 brew "wget"
 brew "xdg-ninja"
 brew "xh"
-brew "yazi", args: ["HEAD"]
 brew "yt-dlp"
 brew "zoxide"
 brew "catppuccin/tap/catwalk"
