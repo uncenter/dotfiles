@@ -1,0 +1,20 @@
+return {
+  "AstroNvim/astrocommunity",
+  { import = "astrocommunity.colorscheme.catppuccin" },
+  { import = "astrocommunity.media.vim-wakatime" },
+
+  { import = "astrocommunity.pack.astro" },
+  { import = "astrocommunity.pack.bash" },
+  { import = "astrocommunity.pack.html-css" },
+  { import = "astrocommunity.pack.json" },
+  { import = "astrocommunity.pack.markdown" },
+  { import = "astrocommunity.pack.lua" },
+  { import = "astrocommunity.pack.just" },
+  { import = "astrocommunity.pack.python-ruff" },
+  { import = "astrocommunity.pack.rust" },
+  { import = "astrocommunity.pack.tailwindcss" },
+  { import = "astrocommunity.pack.toml" },
+  { import = "astrocommunity.pack.typescript-all-in-one" },
+  { import = "astrocommunity.pack.vue" },
+  { import = "astrocommunity.pack.yaml" },
+}
