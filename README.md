@@ -11,7 +11,7 @@ dotfiles manager written in Perl, to manage these. I used this [incredibly helpf
 - Terminal: [Ghostty](https://mitchellh.com/ghostty)
 - Shell: [Fish](https://github.com/fish-shell/fish-shell)
 - Prompt: [Starship](https://starship.rs/)
-- Editor: [Neovim](https://neovim.io/)
+- Editor: [VS Code](https://code.visualstudio.com/) / [Neovim](https://neovim.io/)
 
 I also use a bunch of CLI tools that have configurations here, see https://uncenter.dev/uses/#shell.
 
