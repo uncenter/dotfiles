@@ -41,3 +41,8 @@
 	whitespace = red reverse
 [alias]
 	undo = reset --soft HEAD~1
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
