@@ -5,6 +5,7 @@ return {
     spell = false,
     signcolumn = "auto",
     wrap = false,
+    timeoutlen = 0,
   },
   g = {
     mapleader = " ",
