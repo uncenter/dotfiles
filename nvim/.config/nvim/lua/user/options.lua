@@ -6,6 +6,7 @@ return {
     signcolumn = "auto",
     wrap = false,
     timeoutlen = 0,
+    clipboard = "",
   },
   g = {
     mapleader = " ",
