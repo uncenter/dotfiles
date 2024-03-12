@@ -145,6 +145,7 @@ function update
   brew update
   brew upgrade
   brew cleanup --prune=all
+  cargo install-update --all
   softwareupdate -i -a --verbose
 end
 
