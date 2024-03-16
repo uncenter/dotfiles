@@ -2,6 +2,7 @@ return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.media.vim-wakatime" },
+  { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
 
   { import = "astrocommunity.pack.astro" },
   { import = "astrocommunity.pack.bash" },
