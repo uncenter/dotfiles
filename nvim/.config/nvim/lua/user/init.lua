@@ -29,6 +29,19 @@ return {
       disabled = {},
       timeout_ms = 1000,
     },
+    config = {
+      rust_analyzer = {
+        settings = {
+          ["rust-analyzer"] = {
+            checkOnSave = {
+              allFeatures = true,
+              command = "clippy",
+              extraArgs = { "--no-deps" },
+            },
+          },
+        },
+      },
+    },
     servers = {},
   },
 
