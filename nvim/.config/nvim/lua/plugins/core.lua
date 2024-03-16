@@ -124,7 +124,6 @@ return {
         vim.opt.signcolumn = "no"
         local toggle = function() t:toggle() end
         vim.keymap.set({ "n", "t", "i" }, "<C-'>", toggle, { desc = "Toggle terminal", buffer = t.bufnr })
-        vim.keymap.set({ "n", "t", "i" }, "<F7>", toggle, { desc = "Toggle terminal", buffer = t.bufnr })
       end,
       shading_factor = 2,
       direction = "float",
