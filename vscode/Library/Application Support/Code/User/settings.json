@@ -81,7 +81,7 @@
 	"explorer.fileNesting.enabled": true,
 	"explorer.fileNesting.expand": false,
 	"explorer.fileNesting.patterns": {
-		"//": "Last update at 3/1/2024, 12:22:16 AM",
+		"//": "Last update at 3/12/2024, 5:25:57 PM",
 		"*.asax": "$(capture).*.cs, $(capture).*.vb",
 		"*.ascx": "$(capture).*.cs, $(capture).*.vb",
 		"*.ashx": "$(capture).*.cs, $(capture).*.vb",
@@ -110,6 +110,7 @@
 		"*.module.ts": "$(capture).resolver.ts, $(capture).controller.ts, $(capture).service.ts",
 		"*.mts": "$(capture).mts.map, $(capture).*.mts, $(capture)_*.mts",
 		"*.pubxml": "$(capture).pubxml.user",
+		"*.razor": "$(capture).razor.cs, $(capture).razor.css, $(capture).razor.scss",
 		"*.resx": "$(capture).*.resx, $(capture).designer.cs, $(capture).designer.vb",
 		"*.tex": "$(capture).acn, $(capture).acr, $(capture).alg, $(capture).aux, $(capture).bbl, $(capture).blg, $(capture).fdb_latexmk, $(capture).fls, $(capture).glg, $(capture).glo, $(capture).gls, $(capture).idx, $(capture).ind, $(capture).ist, $(capture).lof, $(capture).log, $(capture).lot, $(capture).out, $(capture).pdf, $(capture).synctex.gz, $(capture).toc, $(capture).xdv",
 		"*.ts": "$(capture).js, $(capture).d.ts.map, $(capture).*.ts, $(capture)_*.js, $(capture)_*.ts",
