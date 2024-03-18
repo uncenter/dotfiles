@@ -72,10 +72,6 @@ function cdf
     cd (osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')
 end
 
-function whatthecommit
-    curl --silent --fail https://whatthecommit.com/index.txt
-end
-
 function mk
     mkdir -p (dirname $argv); and touch $argv
 end
@@ -110,26 +106,6 @@ alias lowercase='tr "[:upper:]" "[:lower:]"'
 alias puil='pnpm up --interactive --latest'
 
 # Other
-function urldecode
-    python3 -c "import sys, urllib.parse as ul; print(ul.unquote_plus(sys.argv[1]))" $argv
-end
-
-function urlencode
-    python3 -c "import sys, urllib.parse as ul; print(ul.quote_plus(sys.argv[1]))" $argv
-end
-
-function randletter
-    python3 -c "import sys, string, random; print(''.join([random.choice(string.ascii_letters) for _ in range(int(sys.argv[1] if len(sys.argv) > 1 else 1))]))" $argv
-end
-
-function randnum
-    python3 -c "import sys, string, random; print(''.join([random.choice(string.digits) for _ in range(int(sys.argv[1] if len(sys.argv) > 1 else 1))]))" $argv
-end
-
-function randchar
-    python3 -c "import sys, string, random; print(''.join([random.choice(string.printable) for _ in range(int(sys.argv[1] if len(sys.argv) > 1 else 1))]))" $argv
-end
-
 function nocache
     npm cache clean --force; pnpm store prune; yarn cache clean
 end
