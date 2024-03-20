@@ -150,6 +150,11 @@ function reset
   command reset
 end
 
+function mommy_ --on-event fish_postexec
+    mommy -1 -s $status
+end
+
+
 starship init fish | source
 fnm env | source
 atuin init fish | source
