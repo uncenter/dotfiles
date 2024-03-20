@@ -47,6 +47,13 @@ show_milliseconds = true
 style = "subtext0"
 format = '[$duration]($style)'
 
+[username]
+show_always = true
+format = '[$user]($style)@'
+
+[hostname]
+ssh_only = false
+
 [directory]
 truncation_length = 5
 truncate_to_repo = false
