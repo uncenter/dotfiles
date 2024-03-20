@@ -88,6 +88,7 @@ alias mv='mv -i'
 alias dig='doggo'
 alias rg='rg --hyperlink-format vscode'
 alias cx='chmod +x'
+alias tk='tenki --wind disable'
 
 # Git
 abbr -a gp git push origin
@@ -160,4 +161,4 @@ fnm env | source
 atuin init fish | source
 zoxide init fish | source
 source ~/.config/tabtab/fish/__tabtab.fish
-
+source /Users/uncenter/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
