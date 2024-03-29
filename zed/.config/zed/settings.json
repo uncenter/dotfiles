@@ -1,0 +1,83 @@
+// https://zed.dev/docs/configuring-zed
+{
+  "base_keymap": "VSCode",
+  "theme": "Catppuccin Frappe",
+  "ui_font_size": 16,
+  "buffer_font_size": 16,
+  "buffer_font_family": "CommitMono Nerd Font",
+  "terminal": {
+    "blinking": "terminal_controlled",
+    "copy_on_select": false,
+    "font_family": "CommitMono Nerd Font",
+    "shell": {
+      "program": "fish"
+    },
+    "working_directory": "current_project_directory"
+  },
+  "show_whitespaces": "all",
+  "ensure_final_newline_on_save": true,
+  "inlay_hints": {
+    "enabled": true,
+    "show_type_hints": true,
+    "show_parameter_hints": true,
+    "show_other_hints": true
+  },
+  "language_overrides": {
+    "JavaScript": {
+      "format_on_save": {
+        "external": {
+          "command": "prettier",
+          "arguments": ["--stdin-filepath", "{buffer_path}"]
+        }
+      }
+    },
+    "TypeScript": {
+      "format_on_save": {
+        "external": {
+          "command": "prettier",
+          "arguments": ["--stdin-filepath", "{buffer_path}"]
+        }
+      }
+    },
+    "JSON": {
+      "format_on_save": {
+        "external": {
+          "command": "prettier",
+          "arguments": ["--stdin-filepath", "{buffer_path}"]
+        }
+      }
+    },
+    "Markdown": {
+      "format_on_save": {
+        "external": {
+          "command": "prettier",
+          "arguments": ["--stdin-filepath", "{buffer_path}"]
+        }
+      }
+    },
+    "HTML": {
+      "format_on_save": {
+        "external": {
+          "command": "prettier",
+          "arguments": ["--stdin-filepath", "{buffer_path}"]
+        }
+      }
+    },
+    "CSS": {
+      "format_on_save": {
+        "external": {
+          "command": "prettier",
+          "arguments": ["--stdin-filepath", "{buffer_path}"]
+        }
+      }
+    },
+    "Python": {
+      "format_on_save": {
+        "external": {
+          "command": "black",
+          "arguments": ["-"]
+        }
+      }
+    }
+  }
+}
