@@ -1,3 +1,10 @@
+<div align="center">
+	<h1>🚧 ARCHIVED 🚧</h1>
+	<h3>I'm now using Nix! See <a href="https://github.com/uncenter/flake">uncenter/flake</a> for my current configurations.</h3>
+</div>
+
+---
+
 <h1>Dotfiles</h1>
 
 ![macOS](https://img.shields.io/badge/macOS-14.4.1-47999e.svg?style=flat-square)
